@@ -1,0 +1,48 @@
+@import 'normalize.css';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --scrollbar-body-light: lightgoldenrodyellow;
+  --scrollbar-thumb-light: rgb(215, 159, 63);
+  --scrollbar-track-light: rgba(250, 250, 210, 0.5);
+  --scrollbar-body-dark: rgb(31, 38, 75);
+  --scrollbar-thumb-dark: rgb(26, 29, 39);
+  --scrollbar-track-dark: rgba(64, 81, 127, 0.5);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: lightgoldenrodyellow;
+  transition: all 300ms ease-in-out;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+.skrB::-webkit-scrollbar {
+  width: 8px;
+}
+
+.skrB::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--scrollbar-thumb-light, rgb(215, 159, 63));
+  transition: all 300ms ease-in-out;
+}
+
+.skrB::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: var(--scrollbar-track-light, rgba(250, 250, 210, 0.5));
+  transition: all 300ms ease-in-out;
+}
