@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getTheme, getUserAuth } from '../../redux/redux-bundle/selectors';
+import { getTheme } from '../../redux/redux-bundle/selectors';
 import { LoginFormButton } from './LoginFormButton';
 import { LoginInputs } from './LoginInputs';
 import { RegistrationShine } from 'components/Shine/RegistrationShine';

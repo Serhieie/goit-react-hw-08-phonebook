@@ -1,6 +1,5 @@
 import { ContactForm } from '../../components/ContactForm/ContactForm';
 import { FilterAndTable } from '../../components/App/FilterAndTable';
-import NoPage from 'components/App/NoPage.jsx';
 
 export default function Contacts({ data, error, isThemeDark }) {
   return (
