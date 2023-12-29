@@ -17,3 +17,19 @@ export const schema = yup.object().shape({
       `Number must have 7, 10 or 12 digits`
     ),
 });
+
+export const registrationSchema = yup.object().shape({
+  name: yup
+    .string()
+    .min(2, 'Name should be at least 2 characters')
+    .max(16, 'Name should not exceed 16 characters')
+    .required('Name is required'),
+  email: yup
+    .string()
+    .email('Please enter a valid email address')
+    .required('Email is required'),
+  password: yup
+    .string()
+    .min(7, 'Password should be at least 7 characters long')
+    .required('Password is required'),
+});

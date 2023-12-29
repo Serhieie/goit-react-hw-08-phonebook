@@ -4,6 +4,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   succesRegistrationMessage,
   failedRegistrationMessage,
+  failedLogin,
 } from 'helpers/notiflix';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
@@ -17,37 +18,48 @@ export const token = {
   },
 };
 
-export const register = createAsyncThunk('auth/register', async credentials => {
-  try {
-    const { data } = await axios.post('users/signup', credentials);
-    token.set(data.token);
-    succesRegistrationMessage();
-    return data;
-  } catch (error) {
-    failedRegistrationMessage();
+export const register = createAsyncThunk(
+  'auth/register',
+  async (credentials, thunkApi) => {
+    try {
+      const { data } = await axios.post('users/signup', credentials);
+      token.set(data.token);
+      succesRegistrationMessage();
+      return data;
+    } catch (error) {
+      failedRegistrationMessage();
+      return thunkApi.rejectWithValue('Bad Request');
+    }
   }
-});
+);
 
-export const login = createAsyncThunk('users/login', async credentials => {
-  try {
-    const { data } = await axios.post('users/login', credentials);
-    token.set(data.token);
+export const login = createAsyncThunk(
+  'users/login',
+  async (credentials, thunkApi) => {
+    try {
+      const { data } = await axios.post('users/login', credentials);
+      token.set(data.token);
 
-    return data;
-  } catch (error) {
-    console.log(error);
+      return data;
+    } catch (error) {
+      failedLogin();
+      return thunkApi.rejectWithValue('User already Exist');
+    }
   }
-});
+);
 
-export const logout = createAsyncThunk('users/logout', async credentials => {
-  try {
-    const { data } = await axios.post('users/logout', credentials);
-    token.unset();
-    return data;
-  } catch (error) {
-    console.log(error);
+export const logout = createAsyncThunk(
+  'users/logout',
+  async (credentials, thunkApi) => {
+    try {
+      const { data } = await axios.post('users/logout', credentials);
+      token.unset();
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue('No Token');
+    }
   }
-});
+);
 
 export const fetchCurrentUser = createAsyncThunk(
   'auth/refresh',
@@ -62,7 +74,7 @@ export const fetchCurrentUser = createAsyncThunk(
       const { data } = await axios.get('users/current');
       return data;
     } catch (error) {
-      console.log(error);
+      return thunkApi.rejectWithValue('error');
     }
   }
 );

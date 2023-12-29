@@ -1,4 +1,4 @@
-export default function NoPage() {
+export const NoPage = () => {
   return (
     <div className="select-none flex justify-center mt-24 h-[80vh] ">
       <div
@@ -22,4 +22,4 @@ export default function NoPage() {
       </div>
     </div>
   );
-}
+};

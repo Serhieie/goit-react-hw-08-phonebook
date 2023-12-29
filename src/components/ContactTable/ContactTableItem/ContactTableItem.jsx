@@ -6,7 +6,7 @@ import normalizePhoneNumber from 'helpers/numberNormalize';
 import { getTheme } from '../../../redux/redux-bundle/selectors';
 import { ModalFordelete } from './ModalForDelete';
 import { useState } from 'react';
-import { useDeleteContactMutation } from '../../../redux/contacts/contacts-api';
+import { useDeleteContactMutation } from '../../../redux/contact/contacts-api';
 
 export function ContactTableItem({ contact, index, data }) {
   const isThemeDark = useSelector(getTheme);
@@ -79,7 +79,10 @@ export function ContactTableItem({ contact, index, data }) {
             rounded-sm font-light justify-center sm:min-h-[20px] sm:min-w-[30px]`}
         >
           {isDeleting ? (
-            <PulseLoader color="#F5DEB3" size="2px" />
+            <PulseLoader
+              color={`${isThemeDark ? '#3f78cc ' : '#F5DEB3 '}`}
+              size="2px"
+            />
           ) : windowWidth < 768 ? (
             <AiOutlineUserDelete style={{ marginRight: '4px' }} />
           ) : (

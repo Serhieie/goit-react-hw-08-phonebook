@@ -4,3 +4,5 @@ export const getTheme = state => state.theme.darkTheme;
 export const getLogedIn = state => state.auth.isLoggedIn;
 export const getUserData = state => state.auth.user;
 export const getUserAuth = state => state.auth;
+export const getError = state => state.auth.error;
+export const getisLoadingUser = state => state.auth.isLoading;

@@ -2,13 +2,12 @@ import strangeStone from '../../img/stone.webp';
 import strangeStoneYellow from '../../img/stone-yellow.webp';
 import { HomePageShine } from 'components/Shine/HomePageShine';
 
-export const HomePage = ({ isThemeDark }) => {
-  //   const [checkUser, { isLoading }] = useCurrentUserQuery();
+export default function HomePage({ isThemeDark }) {
   return (
-    <>
+    <div className="md:mt-[72px] ssm:mt-[22px]">
       {isThemeDark ? (
         <div
-          className="h-[94vh] mt-100 w-[100%]  bg-cover bg-center bg-no-repeat bg-custom-class flex  -z-30 "
+          className="h-[92vh] mt-100 w-[100%]  bg-cover bg-center bg-no-repeat bg-custom-class flex  -z-30 "
           style={{
             backgroundImage: `url(${strangeStone})`,
             backgroundPosition: 'center top',
@@ -21,7 +20,7 @@ export const HomePage = ({ isThemeDark }) => {
         </div>
       ) : (
         <div
-          className="h-[94vh] mt-100  bg-cover bg-center bg-no-repeat bg-custom-class flex -z-30"
+          className="h-[92vh] mt-100  bg-cover bg-center bg-no-repeat bg-custom-class flex -z-30"
           style={{
             backgroundImage: `url(${strangeStoneYellow})`,
             backgroundPosition: 'center',
@@ -34,6 +33,6 @@ export const HomePage = ({ isThemeDark }) => {
         </div>
       )}
       <HomePageShine isThemeDark={isThemeDark} />
-    </>
+    </div>
   );
-};
+}

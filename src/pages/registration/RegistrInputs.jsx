@@ -1,32 +1,17 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { changeUserName, changeUserEmail } from '../../redux/auth/slice-auth';
-import { getUserData } from '../../redux/redux-bundle/selectors';
+import { Field, ErrorMessage } from 'formik';
 
 export const RegLogInputs = ({ isThemeDark }) => {
-  const dispatch = useDispatch();
-  const user = useSelector(getUserData);
-
-  const handleInputNameChange = event => {
-    const value = event.target.value;
-    dispatch(changeUserName(value));
-  };
-
-  const handleInputEmailChange = event => {
-    const value = event.target.value;
-    dispatch(changeUserEmail(value));
-  };
-
   return (
     <>
       <label
-        className={`mt-2 text-xl flex items-center gap-2 md:ml-2 md:w-10/12
+        className={`mt-6 text-xl flex items-center gap-2 md:ml-2 md:w-10/12
       md2:text-sm font-light sm:mt-1`}
         htmlFor="user-name"
       >
         Name
       </label>
-      <input
-        onChange={handleInputNameChange}
+
+      <Field
         className={`${
           isThemeDark
             ? ' text-darkFontDark bg-sky-900 placeholder:text-darkFontDark '
@@ -39,9 +24,12 @@ export const RegLogInputs = ({ isThemeDark }) => {
         type="text"
         name="name"
         id="name"
-        value={user.name || ''}
+        max={16}
         placeholder="Antonio Balambino"
       />
+      <div className="text-sm h-4 w-full text-center -mt-2">
+        <ErrorMessage className=" text-errorMsg" name="name" component="p" />
+      </div>
       <label
         className={`mt-2 text-xl flex items-center gap-2 md:ml-2 
       md2:text-sm font-light sm:mt-1`}
@@ -49,8 +37,8 @@ export const RegLogInputs = ({ isThemeDark }) => {
       >
         Email
       </label>
-      <input
-        onChange={handleInputEmailChange}
+
+      <Field
         className={`${
           isThemeDark
             ? ' text-darkFontDark bg-sky-900 placeholder:text-darkFontDark '
@@ -64,9 +52,11 @@ export const RegLogInputs = ({ isThemeDark }) => {
         name="email"
         id="email"
         placeholder="Balambino@mail.com"
-        value={user.email || ''}
         required
       />
+      <div className="text-sm h-4 w-full text-center -mt-2">
+        <ErrorMessage className=" text-errorMsg" name="email" component="p" />
+      </div>
       <label
         className={`mt-2 text-xl flex items-center gap-2 md:ml-2 
       md2:text-sm font-light sm:mt-1`}
@@ -75,7 +65,8 @@ export const RegLogInputs = ({ isThemeDark }) => {
         {' '}
         Password{' '}
       </label>
-      <input
+
+      <Field
         className={`${
           isThemeDark
             ? ' text-darkFontDark bg-sky-900 placeholder:text-darkFontDark '
@@ -92,6 +83,13 @@ export const RegLogInputs = ({ isThemeDark }) => {
         placeholder="Enter your password"
         required
       />
+      <div className="text-sm h-4 w-full text-center -mt-2">
+        <ErrorMessage
+          className=" text-errorMsg text-center m-0 p-0"
+          name="password"
+          component="div"
+        />
+      </div>
     </>
   );
 };

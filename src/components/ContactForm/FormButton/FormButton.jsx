@@ -15,7 +15,10 @@ export const FormButton = ({ isLoading, isThemeDark }) => {
       } ssm:w-40 ssm:h-10 md2:text-sm`}
     >
       {isLoading ? (
-        <PulseLoader color="#F5DEB3" size="6px" />
+        <PulseLoader
+          color={`${isThemeDark ? '#3f78cc ' : '#F5DEB3 '}`}
+          size="6px"
+        />
       ) : (
         <>
           Add Contact <AiOutlineUserAdd />

@@ -22,8 +22,13 @@ function succesMessage() {
 function succesRegistrationMessage() {
   return Notiflix.Notify.success('Registration Success');
 }
+
 function failedRegistrationMessage() {
-  return Notiflix.Notify.failure('Registration Failed');
+  return Notiflix.Notify.failure('Registration Failed or User already Exist');
+}
+
+function failedLogin() {
+  return Notiflix.Notify.failure('Name or password is not correct.');
 }
 
 function nameCheckerError() {
@@ -35,4 +40,5 @@ export {
   nameCheckerError,
   succesRegistrationMessage,
   failedRegistrationMessage,
+  failedLogin,
 };

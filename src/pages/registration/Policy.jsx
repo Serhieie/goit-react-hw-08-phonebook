@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
-import { getTheme } from '../../redux/redux-bundle/selectors';
+import { getTheme, getError } from '../../redux/redux-bundle/selectors';
 
 export const Policy = () => {
+  const error = useSelector(getError);
   const isThemeDark = useSelector(getTheme);
   const [isChecked, setIsChecked] = useState(false);
 
@@ -12,7 +13,7 @@ export const Policy = () => {
   };
 
   return (
-    <div className="mt-12 w-full max-w-[500px] mx-auto flex relative">
+    <div className="mt-10 w-full max-w-[500px] mx-auto flex relative">
       <input
         className={`${
           isThemeDark
@@ -29,7 +30,7 @@ export const Policy = () => {
         checked={isChecked}
         onChange={handleCheckboxChange}
       />
-      {isChecked && (
+      {isChecked && !error && (
         <span className="absolute top-1.5 left-0.5 pointer-events-none p-0.5 w-full">
           <FaCheck size={16} className="pointer-events-none" />
         </span>

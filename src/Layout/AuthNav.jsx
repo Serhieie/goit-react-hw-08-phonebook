@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 export const AuthNav = ({ isThemeDark }) => {
   return (
-    <div className="flex gap-10 mr-auto">
+    <div className="flex gap-8 mr-auto">
       {' '}
       <NavLink
         className={`${
@@ -16,7 +16,7 @@ export const AuthNav = ({ isThemeDark }) => {
              after:content after:absolute after:left-0 after:right-0 after:h-[0.4px] 
              after:rounded-xl after:transform after:origin-bottom 
               after:scale-x-0 hover:after:scale-x-100 hover flex flex-col`}
-        to="/login"
+        to="/"
       >
         Login
         <span className="w-full absolute scale-x-0  top-8 bg-transparent"></span>

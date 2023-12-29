@@ -20,11 +20,11 @@ export const Header = () => {
   return (
     <header
       className="flex gap-4 sm:gap-0 justify-around mx-auto 
-    w-full  p-4 pl-20   ssm:p-2 rounded shadow-xl
-    md:flex-col md:items-center md:text-base md:px-1.5 
+    w-full  p-4 pl-10   ssm:p-2 rounded shadow-xl
+     md:items-center md:text-base md:px-1.5 
     text-xl  select-none 
     bg-gradient-to-tl 
-    absolute top-0 z-20 "
+    absolute top-0 z-20  ssm:pl-0"
     >
       <UserDisplay
         fullState={fullState}
@@ -32,9 +32,17 @@ export const Header = () => {
         isThemeDark={isThemeDark}
       />
       <ThemeSwitcher isThemeDark={isThemeDark} />
-      <nav className="py-2 ml-auto px-6 mx-auto flex items-center justify-start  md:justify-between md:w-full md:px-4 gap-8 w-full  pr-[20%] ssm:gap-8">
-        {isLoggedIn ? null : <AuthNav isThemeDark={isThemeDark} />}
-        <MainNav isThemeDark={isThemeDark} isLoggedIn={isLoggedIn} />
+      <nav
+        className={`${
+          isLoggedIn ? 'ml-auto' : 'mr-auto'
+        } py-2 mr-auto px-6  flex items-center 
+      justify-start  md:justify-between  md:px-4 gap-8 w-24%  md:pr-[2%]  pr-[26%] ssm:gap-1 ssm:mx-0`}
+      >
+        {isLoggedIn ? (
+          <MainNav isThemeDark={isThemeDark} isLoggedIn={isLoggedIn} />
+        ) : (
+          <AuthNav isThemeDark={isThemeDark} />
+        )}
       </nav>
     </header>
   );

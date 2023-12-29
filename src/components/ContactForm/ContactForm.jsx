@@ -9,7 +9,7 @@ import { ErrorMessages } from './ErrorMessages/ErrorMessages';
 import {
   useGetAllContactsQuery,
   usePostContactMutation,
-} from '../../redux/contacts/contacts-api';
+} from '../../redux/contact/contacts-api';
 
 const initialValues = {
   name: '',
@@ -59,7 +59,7 @@ export function ContactForm({ isThemeDark }) {
             ? ' shadow-shadowBoxDark from-smallWraperGradient1Dark to-smallWraperGradient2Dark '
             : ' from-smallWraperGradient1 shadow-shadowBox to-smallWraperGradient2 '
         }  flex gap-2 flex-col w-1/3 py-20 pr-7 pl-5 rounded-sm
-          shadow-lg bg-gradient-to-tr md:py-7 md:px-5 md:min-h-0 md:w-[99%]
+          shadow-lg bg-gradient-to-tr md:py-12 md:px-5 md:min-h-0 md:w-[99%]
           transition-all ssm:pt-14 overflow-hidden`}
         // style={{
         //   backgroundImage: `url(${userAvatar})`,

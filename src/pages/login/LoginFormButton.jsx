@@ -1,10 +1,14 @@
 import { PulseLoader } from 'react-spinners';
+import { getisLoadingUser } from '../../redux/redux-bundle/selectors';
+import { useSelector } from 'react-redux';
 
-export const LoginFormButton = ({ text, isLoading, isThemeDark }) => {
+export const LoginFormButton = ({ text, isThemeDark }) => {
+  const isLoading = useSelector(getisLoadingUser);
+  console.log(isLoading);
   return (
     <button
       type="submit"
-      // disabled={isLoading}
+      disabled={isLoading}
       className={`${
         isThemeDark
           ? 'shadow-none hover:bg-buttonHoverColorDark text-buttonTextColorDark hover:text-lightPartsColorDark bg-buttonColorDark'

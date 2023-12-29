@@ -1,16 +1,21 @@
-import React, { useEffect } from 'react';
-import NoPage from './NoPage.jsx';
+import React, { useEffect, lazy } from 'react';
+import PrivateRoute from '../../PrivateRoute.jsx';
+import RestrictedRoute from '../../RestrictedRoute.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTheme } from '../../redux/redux-bundle/selectors.js';
 import { BodyChanger } from 'helpers/useEffectBodyChanger.js';
 import { Routes, Route } from 'react-router-dom';
 import Layout from 'Layout/Layout.jsx';
-import Contacts from 'pages/contacts/contacts.js';
-import Registration from '../../pages/registration/Registration.jsx';
-import Login from '../../pages/login/Login.jsx';
-import { HomePage } from 'pages/homePage/HomePage.jsx';
+import { NoPage } from './NoPage.jsx';
 import { fetchCurrentUser } from '../../redux/auth/operations-auth.js';
-import { useGetAllContactsQuery } from '../../redux/contacts/contacts-api';
+import { useGetAllContactsQuery } from '../../redux/contact/contacts-api.js';
+
+const HomePage = lazy(() => import('../../pages/homePage/HomePage'));
+const Registration = lazy(() =>
+  import('../../pages/registration/Registration')
+);
+const Login = lazy(() => import('../../pages/login/Login'));
+const Contacts = lazy(() => import('../../pages/contacts/Contacts'));
 
 export function App() {
   const dispatch = useDispatch();
@@ -38,15 +43,34 @@ export function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage isThemeDark={isThemeDark} />} />
-        <Route path="/registration" element={<Registration />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          index
+          element={<RestrictedRoute component={<Login />} redirectTo="/home" />}
+        />
+        <Route
+          path="/registration"
+          element={
+            <RestrictedRoute component={<Registration />} redirectTo="/home" />
+          }
+        />
+        <Route
+          path="/home"
+          element={
+            <PrivateRoute component={<HomePage isThemeDark={isThemeDark} />} />
+          }
+        />
         <Route
           path="/contacts"
           element={
-            <Contacts data={data} error={error} isThemeDark={isThemeDark} />
+            <PrivateRoute
+              component={
+                <Contacts data={data} error={error} isThemeDark={isThemeDark} />
+              }
+              redirectTo="/"
+            />
           }
         />
+
         <Route path="*" element={<NoPage />} />
       </Route>
     </Routes>
