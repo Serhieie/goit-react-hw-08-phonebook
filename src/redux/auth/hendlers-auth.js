@@ -65,12 +65,15 @@ const handleLogoutFulfilled = (state, action) => {
 };
 
 const handleFetchCurrentUserFulfilled = (state, action) => {
-  return {
-    ...state,
-    isLoading: false,
-    user: { ...action.payload },
-    isLoggedIn: true,
-  };
+  if (action.payload) {
+    return {
+      ...state,
+      isLoading: false,
+      user: { ...action.payload },
+      isLoggedIn: true,
+    };
+  }
+  return state;
 };
 
 export {

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 export const LoginFormButton = ({ text, isThemeDark }) => {
   const isLoading = useSelector(getisLoadingUser);
-  console.log(isLoading);
+
   return (
     <button
       type="submit"

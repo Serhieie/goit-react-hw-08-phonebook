@@ -42,9 +42,9 @@ export function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route element={<Layout />}>
         <Route
-          index
+          path="/"
           element={<RestrictedRoute component={<Login />} redirectTo="/home" />}
         />
         <Route

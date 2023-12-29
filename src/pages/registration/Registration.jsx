@@ -33,7 +33,7 @@ export default function Registration() {
       password: password.trim(),
     };
     handleRegistration(userData, dispatch);
-    // resetForm();
+    resetForm();
   };
 
   return (
