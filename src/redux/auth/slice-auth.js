@@ -60,7 +60,7 @@ const authSlice = createSlice({
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token', 'user', 'avatar'],
+  whitelist: ['token', 'user', 'avatar', 'isLoggedIn'],
 };
 
 export const persistedAuthReducer = persistReducer(

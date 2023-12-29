@@ -43,7 +43,7 @@ export const login = createAsyncThunk(
       return data;
     } catch (error) {
       failedLogin();
-      return thunkApi.rejectWithValue('User already Exist');
+      return thunkApi.rejectWithValue('Not correct user');
     }
   }
 );

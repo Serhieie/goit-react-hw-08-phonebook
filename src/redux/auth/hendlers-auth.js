@@ -68,8 +68,8 @@ const handleFetchCurrentUserFulfilled = (state, action) => {
   if (action.payload) {
     return {
       ...state,
-      isLoading: false,
       user: { ...action.payload },
+      isLoading: false,
       isLoggedIn: true,
     };
   }
