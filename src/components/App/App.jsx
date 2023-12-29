@@ -42,26 +42,24 @@ export function App() {
 
   return (
     <Routes>
-      <Route element={<Layout />}>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage isThemeDark={isThemeDark} />} />
         <Route
-          path="/"
-          element={<RestrictedRoute component={<Login />} redirectTo="/home" />}
+          path="/login"
+          element={
+            <RestrictedRoute component={<Login />} redirectTo="/contacts" />
+          }
         />
         <Route
           path="/registration"
           element={
-            <RestrictedRoute component={<Registration />} redirectTo="/home" />
-          }
-        />
-        <Route
-          path="/home"
-          element={
-            <PrivateRoute
-              component={<HomePage isThemeDark={isThemeDark} />}
-              redirectTo="/"
+            <RestrictedRoute
+              component={<Registration />}
+              redirectTo="/contacts"
             />
           }
         />
+
         <Route
           path="/contacts"
           element={
@@ -69,7 +67,7 @@ export function App() {
               component={
                 <Contacts data={data} error={error} isThemeDark={isThemeDark} />
               }
-              redirectTo="/"
+              redirectTo="/login"
             />
           }
         />
