@@ -38,10 +38,10 @@ module.exports = {
         lightPartsColorDark: 'rgb(7, 33, 78)',
         darkFontDark: 'rgb(204, 222, 255)',
 
-        gradientColor1Dark: 'rgb(20, 19, 27)',
-        gradientColor2Dark: 'rgb(51, 61, 142)',
-        smallWraperGradient1Dark: 'rgb(22, 26, 40)',
-        smallWraperGradient2Dark: 'rgb(4, 9, 42)',
+        gradientColor1Dark: 'rgb(3, 3, 4)',
+        gradientColor2Dark: 'rgb(22, 26, 56)',
+        smallWraperGradient1Dark: 'rgb(9, 11, 17)',
+        smallWraperGradient2Dark: 'rgb(0, 3, 17)',
 
         buttonColorDark: 'rgb(14, 68, 115)',
         buttonHoverColorDark: 'rgb(56, 154, 240)',

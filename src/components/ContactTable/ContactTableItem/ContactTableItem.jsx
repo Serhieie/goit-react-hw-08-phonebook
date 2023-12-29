@@ -6,7 +6,7 @@ import normalizePhoneNumber from 'helpers/numberNormalize';
 import { getTheme } from '../../../redux/redux-bundle/selectors';
 import { ModalFordelete } from './ModalForDelete';
 import { useState } from 'react';
-import { useDeleteContactMutation } from '../../../redux/rtk-apiService/rtkq-api';
+import { useDeleteContactMutation } from '../../../redux/contacts/contacts-api';
 
 export function ContactTableItem({ contact, index, data }) {
   const isThemeDark = useSelector(getTheme);
@@ -57,7 +57,7 @@ export function ContactTableItem({ contact, index, data }) {
           isThemeDark ? ' bg-lightPartsColorDark ' : ' bg-lightPartsColor '
         }p-1 text-center   md:text-md ssm:text-[12px] `}
       >
-        {normalizePhoneNumber(contact.phone)}
+        {normalizePhoneNumber(contact.number)}
       </td>
       <td
         width="15%"
@@ -99,10 +99,9 @@ export function ContactTableItem({ contact, index, data }) {
 }
 
 const ContactType = {
-  createdAt: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
 };
 
 ContactTableItem.propTypes = {

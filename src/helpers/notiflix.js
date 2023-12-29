@@ -19,8 +19,20 @@ function succesMessage() {
   return Notiflix.Notify.success('Contact was added');
 }
 
+function succesRegistrationMessage() {
+  return Notiflix.Notify.success('Registration Success');
+}
+function failedRegistrationMessage() {
+  return Notiflix.Notify.failure('Registration Failed');
+}
+
 function nameCheckerError() {
   return Notiflix.Notify.failure('Contact already exists');
 }
 
-export { succesMessage, nameCheckerError };
+export {
+  succesMessage,
+  nameCheckerError,
+  succesRegistrationMessage,
+  failedRegistrationMessage,
+};

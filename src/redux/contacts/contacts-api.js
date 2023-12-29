@@ -1,25 +1,38 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import axios from 'axios';
+import { createApi } from '@reduxjs/toolkit/query/react';
 
 export const contactsApi = createApi({
-  reducerPath: 'mockApi',
-  baseQuery: fetchBaseQuery({
-    baseUrl: 'https://6582fdb302f747c8367acf8e.mockapi.io/v1/',
-  }),
+  reducerPath: 'swaggerApi',
+  baseQuery: async ({ url, method, body }, { signal }) => {
+    try {
+      const result = await axios.request({
+        url,
+        method,
+        data: body,
+        signal,
+      });
+
+      return { data: result.data };
+    } catch (error) {
+      return { error: error.message || 'Something went wrong!' };
+    }
+  },
   tagTypes: ['Contact'],
   endpoints: builder => ({
     getAllContacts: builder.query({
-      query: () => `contacts`,
+      query: () => ({ url: 'contacts' }),
       providesTags: ['Contact'],
     }),
 
     postContact: builder.mutation({
       query: contactData => ({
-        url: `contacts`,
+        url: 'contacts',
         method: 'POST',
         body: contactData,
       }),
       invalidatesTags: ['Contact'],
     }),
+
     deleteContact: builder.mutation({
       query: id => ({
         url: `contacts/${id}`,

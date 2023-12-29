@@ -1,12 +1,10 @@
 import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { ContactTableItem } from './ContactTableItem/ContactTableItem';
-import { useGetAllContactsQuery } from '../../redux/rtk-apiService/rtkq-api';
 import { getFilterValue, getTheme } from '../../redux/redux-bundle/selectors';
 import { TableHead } from './TableHead/TableHead';
 
-export function ContactTable() {
-  const { data, error, isLoading } = useGetAllContactsQuery();
+export function ContactTable({ data, error, isLoading }) {
   const filter = useSelector(getFilterValue);
   const isThemeDark = useSelector(getTheme);
 
@@ -19,7 +17,7 @@ export function ContactTable() {
     const filteredContacts = data.filter(
       contact =>
         contact.name.toLowerCase().includes(normalizedFilter) ||
-        contact.phone.toLowerCase().includes(normalizedFilter)
+        contact.number.toLowerCase().includes(normalizedFilter)
     );
     const sortedContacts = [...filteredContacts].sort((a, b) => {
       return a.name.localeCompare(b.name);
@@ -52,7 +50,7 @@ export function ContactTable() {
             ? 'border-tableBorderColorDark '
             : 'border-tableBorderColor '
         } border-2  border-collapese 
-        mt-5 mb-5 block mx-auto overflow-auto w-full h-[534px] 
+        mt-5 mb-5 block mx-auto overflow-auto w-full h-[490px] 
         ssm:text-xs `}
       >
         <TableHead isThemeDark={isThemeDark} />

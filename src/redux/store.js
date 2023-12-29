@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import rootReducer from './redux-bundle/rootReducer';
-import { contactsApi } from './rtk-apiService/rtkq-api';
+import { contactsApi } from './contacts/contacts-api';
 import { setupListeners } from '@reduxjs/toolkit/query';
 
 import {

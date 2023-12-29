@@ -24,7 +24,7 @@ export function Filter() {
     >
       <TbUserSearch
         className={`
-        absolute w-4 h-4 opacity-40 top-3.5 left-9 1xl2:left-12
+        absolute w-4 h-4 opacity-40 top-3.5 md:left-10 left-14 1xl2:left-12
         z-10 ${
           !isThemeDark
             ? ' text-filterPlaceholderColor '
@@ -43,9 +43,9 @@ export function Filter() {
             ? ' bg-sky-900 text-darkFontDark placeholder:text-filterPlaceholderColorDark '
             : 'bg-lightPartsColor text-darkFont placeholder:text-filterPlaceholderColor  '
         }placeholder:opacity-50 flex text-m border-none outline-none w-11/12 max-w-[480px]
-         h-10 rounded mx-auto opacity-70 text-center py-0.5 pr-2 pl-5 placeholder:text-center 
+         h-10 rounded mx-auto opacity-70 text-center py-0.5 pr-2 pl-12 placeholder:text-center 
          placeholder:py-1 placeholder:px-5 md:w-[90%] 
-          md:pl-10 ssm:pl-1 text-xl placeholder:font-light font-light transition-all`}
+          md:pl-12 ssm:pl-1 text-xl placeholder:font-light font-light transition-all`}
       />
     </label>
   );

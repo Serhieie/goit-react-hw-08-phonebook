@@ -1,7 +1,7 @@
 import { ContactTable } from 'components/ContactTable/ContactTable';
 import { Filter } from 'components/Filter/Filter';
 
-export const FilterAndTable = ({ isThemeDark }) => {
+export const FilterAndTable = ({ data, isThemeDark }) => {
   return (
     <div
       className={`${
@@ -15,7 +15,7 @@ export const FilterAndTable = ({ isThemeDark }) => {
       relative md:mt-3 md:pt-0 md:pb-7 md:px-1 md2:px-2 md:w-11/12  transition-all`}
     >
       <Filter />
-      <ContactTable />
+      <ContactTable data={data} />
     </div>
   );
 };
