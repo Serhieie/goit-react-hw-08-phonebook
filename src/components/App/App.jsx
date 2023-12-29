@@ -56,7 +56,10 @@ export function App() {
         <Route
           path="/home"
           element={
-            <PrivateRoute component={<HomePage isThemeDark={isThemeDark} />} />
+            <PrivateRoute
+              component={<HomePage isThemeDark={isThemeDark} />}
+              redirectTo="/"
+            />
           }
         />
         <Route
