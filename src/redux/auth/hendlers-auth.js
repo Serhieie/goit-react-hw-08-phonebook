@@ -1,11 +1,11 @@
 import { getRandomAvatarPath } from 'helpers/randomAvatar';
 
 const handlePending = state => {
-  return { ...state, isLoading: true };
+  return { ...state, isLoadingUser: true };
 };
 
 const handleRejected = state => {
-  return { ...state, isLoading: false };
+  return { ...state, isLoadingUser: false };
 };
 
 const handleRegisterFulfilled = (state, action) => {
@@ -18,7 +18,7 @@ const handleRegisterFulfilled = (state, action) => {
       },
       token: action.payload.token,
       avatar: getRandomAvatarPath(),
-      isLoading: false,
+      isLoadingUser: false,
       isLoggedIn: true,
     };
   }
@@ -28,7 +28,7 @@ const handleRegisterFulfilled = (state, action) => {
 const handleRegisterRejected = (state, action) => {
   return {
     ...state,
-    isLoading: false,
+    isLoadingUser: false,
     user: {
       name: action.payload.user?.name || '',
       number: action.payload.user?.number || '',
@@ -47,17 +47,20 @@ const handleLoginFulfilled = (state, action) => {
       token: action.payload.token,
       isLoggedIn: true,
       avatar: getRandomAvatarPath(),
-      isLoading: false,
+      isLoadingUser: false,
     };
   }
   return state;
 };
 
-const handleLogoutFulfilled = (state, action) => {
+const handleLogoutFulfilled = state => {
   return {
     ...state,
-    isLoading: false,
-    user: '',
+    isLoadingUser: false,
+    user: {
+      name: '',
+      number: '',
+    },
     token: null,
     isLoggedIn: false,
     avatar: '',
@@ -69,7 +72,7 @@ const handleFetchCurrentUserFulfilled = (state, action) => {
     return {
       ...state,
       user: { ...action.payload },
-      isLoading: false,
+      isLoadingUser: false,
       isLoggedIn: true,
     };
   }

@@ -27,7 +27,7 @@ const authSlice = createSlice({
       state.token = action.payload;
     },
     changeIsLoadingToken(state, action) {
-      state.isLoading = { ...state, isLoading: action.payload };
+      state.isLoadingUser = { ...state, isLoadingUser: action.payload };
     },
     changeUserStatus(state, action) {
       state.isLoggedIn = action.payload;
@@ -60,7 +60,7 @@ const authSlice = createSlice({
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token', 'user', 'avatar', 'isLoggedIn'],
+  whitelist: ['token', 'avatar'],
 };
 
 export const persistedAuthReducer = persistReducer(

@@ -1,11 +1,16 @@
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { getLogedIn, getisLoadingUser } from './redux/redux-bundle/selectors';
+import {
+  getLogedIn,
+  getisLoadingUser,
+  getToken,
+} from './redux/redux-bundle/selectors';
 
 export default function PrivateRoute({ children, redirectTo = '/' }) {
+  const token = useSelector(getToken);
   const isLoggedIn = useSelector(getLogedIn);
   const userLoading = useSelector(getisLoadingUser);
-  const shouldRedirect = !isLoggedIn && !userLoading;
+  const shouldRedirect = !userLoading && !isLoggedIn && !token;
 
   return shouldRedirect ? <Navigate to={redirectTo} /> : children;
 }

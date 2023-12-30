@@ -1,7 +1,9 @@
 import { ContactForm } from '../../components/ContactForm/ContactForm';
 import { FilterAndTable } from '../../components/App/FilterAndTable';
+import { useGetAllContactsQuery } from '../../redux/contact/contacts-api';
 
-export default function Contacts({ data, isThemeDark }) {
+export default function Contacts({ isThemeDark }) {
+  const { data } = useGetAllContactsQuery();
   return (
     <div
       className="flex gap-4 sm:gap-0 justify-around mx-auto 

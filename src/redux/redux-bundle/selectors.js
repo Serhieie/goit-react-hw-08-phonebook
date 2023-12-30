@@ -5,4 +5,5 @@ export const getLogedIn = state => state.auth.isLoggedIn;
 export const getUserData = state => state.auth.user;
 export const getUserAuth = state => state.auth;
 export const getError = state => state.auth.error;
-export const getisLoadingUser = state => state.auth.isLoading;
+export const getisLoadingUser = state => state.auth.isLoadingUser;
+export const getToken = state => state.auth.token;

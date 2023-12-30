@@ -19,7 +19,7 @@ export const filterSlice = createSlice({
 const persistConfig = {
   key: 'filter',
   storage,
-  blacklist: ['contacts', 'form'],
+  blacklist: ['contacts', 'form', 'isLoadingUser'],
 };
 
 export const persistedFilterReducer = persistReducer(
