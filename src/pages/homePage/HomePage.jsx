@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 
 export default function HomePage({ isThemeDark, name }) {
   return (
-    <div className="md:mt-[54px] ssm:mt-[48px] w-full">
+    <div className="md:mt-[54px] ssm:mt-[48px] w-full 1xl2:mt-0">
       <Helmet>
         <title>Sweet-Home</title>
       </Helmet>
@@ -11,8 +11,8 @@ export default function HomePage({ isThemeDark, name }) {
         <div
           className={` bg-strange-stone md:bg-mobile-strange-stone h-[92vh] w-[100%] bg-cover bg-center bg-no-repeat bg-custom-class flex -z-30`}
           style={{
-            backgroundPosition: 'center top',
-            backgroundSize: 'cover', // Змінений розмір фону
+            backgroundPosition: 'center top 10%',
+            backgroundSize: 'cover',
           }}
         >
           <h1
@@ -26,8 +26,8 @@ export default function HomePage({ isThemeDark, name }) {
         <div
           className={`h-[92vh]  bg-yellow-strange-stone md:bg-mobile-yellow-strange-stone  mt-100 bg-cover bg-center bg-no-repeat bg-custom-class flex -z-30`}
           style={{
-            backgroundPosition: 'center top',
-            backgroundSize: 'cover', // Змінений розмір фону
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
           }}
         >
           <h1
