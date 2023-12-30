@@ -1,18 +1,10 @@
 import React from 'react';
 
-// Функція генерування випадкового числа у заданому діапазоні
 const getRandomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-// Функція генерування випадкового кольору у форматі HEX
-const getRandomColor = () => {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-};
-
-const ExtraSmallShine = ({ isThemeDark, left, top, blurSize }) => {
-  const colorLight = getRandomColor();
-
+const ExtraSmallShine = ({ isThemeDark, left, top }) => {
   const gradientClasses = {
     red: ['from-red-300', 'to-red-900'],
     orange: ['from-orange-300', 'to-orange-900'],
@@ -63,7 +55,7 @@ const blurSizes = ['sm', 'md', 'lg', 'xl', '2xl', '3xl'];
 const generateExtraSmallShines = (count, isThemeDark) => {
   const shines = [];
   const maxWidth = window.innerWidth - 120;
-  const maxHeight = window.innerHeight - 120; // Зменшено максимальну висоту, щоб не генерувати за межами нижньої частини екрану
+  const maxHeight = window.innerHeight - 120;
 
   for (let i = 0; i < count; i += 1) {
     const randomBlurIndex = getRandomNumber(0, blurSizes.length - 1);
@@ -72,7 +64,6 @@ const generateExtraSmallShines = (count, isThemeDark) => {
     let left = getRandomNumber(0, maxWidth);
     let top = getRandomNumber(0, maxHeight);
 
-    // Додаткові перевірки для того, щоб не виходити за межі екрану знизу
     if (left + 90 > window.innerWidth) {
       left = window.innerWidth - 199;
     }

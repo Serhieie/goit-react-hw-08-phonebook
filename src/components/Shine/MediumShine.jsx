@@ -1,18 +1,8 @@
-import React from 'react';
-
-// Функція генерування випадкового числа у заданому діапазоні
 const getRandomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-// Функція генерування випадкового кольору у форматі HEX
-const getRandomColor = () => {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-};
-
-const MediumShine = ({ isThemeDark, left, top, blurSize }) => {
-  const colorLight = getRandomColor();
-
+const MediumShine = ({ isThemeDark, left, top }) => {
   const gradientClasses = {
     red: ['from-red-300', 'to-red-900'],
     orange: ['from-orange-300', 'to-orange-900'],
@@ -72,7 +62,6 @@ const generateMediumShines = (count, isThemeDark) => {
     let left = getRandomNumber(0, maxWidth);
     let top = getRandomNumber(0, maxHeight);
 
-    // Додаткові перевірки для того, щоб не виходити за межі екрану знизу
     if (left + 200 > window.innerWidth) {
       left = window.innerWidth - 100;
     }
