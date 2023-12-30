@@ -10,7 +10,7 @@ export const RegistrationShine = ({ isThemeDark }) => {
           className={`${
             isThemeDark
               ? 'from-transparent   to-violet-800 '
-              : 'from-transparent   to-amber-50 '
+              : 'from-transparent   to-amber-300 '
           } absolute bottom-0 w-full h-full  max-w-[580px] max-h-[480px] transform 
         -translate-x-1/2 pointer-events-none -translate-y-1/2 bg-gradient-to-b from-transparent
           rounded-full animate-shine blur-3xl`}
@@ -26,7 +26,7 @@ export const RegistrationShine = ({ isThemeDark }) => {
           className={`${
             isThemeDark
               ? 'from-transparent   to-cyan-700 '
-              : 'from-transparent   to-yellow-50 '
+              : 'from-transparent   to-amber-500 '
           } absolute bottom-0 w-full h-full  max-w-[580px] max-h-[480px] transform 
         -translate-x-1/2 -translate-y-1/2 bg-gradient-to-b from-transparent
           rounded-full pointer-events-none animate-shine blur-3xl`}
