@@ -4,6 +4,7 @@ import { Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import { getTheme } from '../redux/redux-bundle/selectors.js';
 import { Header } from './Header';
+import { SuspenseLoader } from '../components/SuspenseLoader/SuspenseLoader.jsx';
 
 export default function Layout() {
   const isThemeDark = useSelector(getTheme);
@@ -23,7 +24,7 @@ export default function Layout() {
     >
       <Header />
       <main className="w-full mt-12 relative ">
-        <Suspense fallback={null}>
+        <Suspense fallback={<SuspenseLoader isThemeDark={isThemeDark} />}>
           <Outlet />
         </Suspense>
       </main>

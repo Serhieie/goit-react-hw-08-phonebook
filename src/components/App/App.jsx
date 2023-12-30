@@ -11,6 +11,7 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from 'Layout/Layout.jsx';
 import { NoPage } from './NoPage.jsx';
 import { fetchCurrentUser } from '../../redux/auth/operations-auth.js';
+import { SuspenseLoader } from 'components/SuspenseLoader/SuspenseLoader.jsx';
 
 const HomePage = lazy(() => import('../../pages/homePage/HomePage'));
 const Registration = lazy(() =>
@@ -32,47 +33,47 @@ export function App() {
     BodyChanger(isThemeDark);
   }, [isThemeDark]);
 
-  return (
-    !isLoading && (
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route
-            path="/"
-            element={
-              <RestrictedRoute redirectTo="/home">
-                <Login />
-              </RestrictedRoute>
-            }
-          />
-          <Route
-            path="/registration"
-            element={
-              <RestrictedRoute redirectTo="/home">
-                <Registration />
-              </RestrictedRoute>
-            }
-          />
-          <Route
-            path="/home"
-            element={
-              <PrivateRoute redirectTo="/">
-                <HomePage isThemeDark={isThemeDark} />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/contacts"
-            element={
-              <PrivateRoute redirectTo="/">
-                {' '}
-                <Contacts isThemeDark={isThemeDark} />
-              </PrivateRoute>
-            }
-          />
+  return isLoading ? (
+    <SuspenseLoader isThemeDark={isThemeDark} />
+  ) : (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route
+          path="/"
+          element={
+            <RestrictedRoute redirectTo="/home">
+              <Login />
+            </RestrictedRoute>
+          }
+        />
+        <Route
+          path="/registration"
+          element={
+            <RestrictedRoute redirectTo="/home">
+              <Registration />
+            </RestrictedRoute>
+          }
+        />
+        <Route
+          path="/home"
+          element={
+            <PrivateRoute redirectTo="/">
+              <HomePage isThemeDark={isThemeDark} />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute redirectTo="/">
+              {' '}
+              <Contacts isThemeDark={isThemeDark} />
+            </PrivateRoute>
+          }
+        />
 
-          <Route path="*" element={<NoPage />} />
-        </Route>
-      </Routes>
-    )
+        <Route path="*" element={<NoPage />} />
+      </Route>
+    </Routes>
   );
 }
