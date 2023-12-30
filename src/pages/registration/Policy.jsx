@@ -37,13 +37,13 @@ export const Policy = () => {
 
       <label htmlFor="user-privacy">
         I accept the terms and conditions of the{' '}
-        <a
-          className={`${isThemeDark ? 'text-teal-400' : 'text-teal-600'} ml-2`}
-          href="/"
-          target="_blank"
+        <span
+          className={`${
+            isThemeDark ? 'text-teal-400' : 'text-teal-600'
+          } ml-2 cursor-pointer`}
         >
           Privacy Policy
-        </a>
+        </span>
       </label>
     </div>
   );
