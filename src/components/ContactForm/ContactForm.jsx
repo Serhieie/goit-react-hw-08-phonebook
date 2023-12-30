@@ -61,12 +61,6 @@ export function ContactForm({ isThemeDark }) {
         }  flex gap-2 flex-col w-1/3 py-20 pr-7 pl-5 rounded-sm
           shadow-lg bg-gradient-to-tr md:py-12 md:px-5 md:min-h-0 md:w-[99%]
           transition-all ssm:pt-14 overflow-hidden`}
-        // style={{
-        //   backgroundImage: `url(${userAvatar})`,
-        //   backgroundPosition: '-150px 360px',
-        //   backgroundRepeat: 'no-repeat',
-        //   backgroundSize: 'cover',
-        // }}
       >
         <h1 className="text-center text-3xl m-0 md:text-xl md2:text-xl font-normal">
           Add Contact Field

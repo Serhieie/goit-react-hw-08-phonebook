@@ -1,17 +1,16 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { getTheme, getUserAuth } from '../redux/redux-bundle/selectors.js';
 import { ThemeSwitcher } from '../components/App/ThemeSwitcher.jsx';
-// import { useUserLogoutMutation } from '../redux/PRACTICE/rtk-apiService/user-api.js';
 import { AuthNav } from './AuthNav.jsx';
 import { MainNav } from './MainNav.jsx';
 import { UserDisplay } from './UserDisplay.jsx';
 import { logout } from '../redux/auth/operations-auth.js';
+import { useAuth } from '../helpers/hooks/auth-selector-hook.js';
 
 export const Header = () => {
   const dispatch = useDispatch();
   const isThemeDark = useSelector(getTheme);
-  const fullState = useSelector(getUserAuth);
-  const isLoggedIn = fullState.isLoggedIn;
+  const fullState = useAuth();
 
   const handleLogout = async () => {
     dispatch(logout());
@@ -34,12 +33,15 @@ export const Header = () => {
       <ThemeSwitcher isThemeDark={isThemeDark} />
       <nav
         className={`${
-          isLoggedIn ? 'ml-auto' : 'mr-auto'
+          fullState.isLoggedIn ? 'ml-auto' : 'mr-auto'
         } py-2 mr-auto px-6  flex items-center 
       justify-start  md:justify-between  md:px-4 gap-8 w-24%  md:pr-[2%]  pr-[26%] ssm:gap-1 ssm:mx-0`}
       >
-        {isLoggedIn ? (
-          <MainNav isThemeDark={isThemeDark} isLoggedIn={isLoggedIn} />
+        {fullState.isLoggedIn ? (
+          <MainNav
+            isThemeDark={isThemeDark}
+            isLoggedIn={fullState.isLoggedIn}
+          />
         ) : (
           <AuthNav isThemeDark={isThemeDark} />
         )}

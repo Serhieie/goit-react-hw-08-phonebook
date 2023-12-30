@@ -1,10 +1,6 @@
 import { PulseLoader } from 'react-spinners';
-import { getisLoadingUser } from '../../redux/redux-bundle/selectors';
-import { useSelector } from 'react-redux';
 
-export const LoginFormButton = ({ text, isThemeDark }) => {
-  const isLoading = useSelector(getisLoadingUser);
-
+export const LoginFormButton = ({ text, isLoading, isThemeDark }) => {
   return (
     <button
       type="submit"
@@ -18,7 +14,14 @@ export const LoginFormButton = ({ text, isThemeDark }) => {
         isThemeDark ? 'text-lg md:w-48' : 'text-lg md:w-48'
       } ssm:w-40 ssm:h-10 md2:text-sm `}
     >
-      {isLoading ? <PulseLoader color="#F5DEB3" size="6px" /> : <>{text}</>}
+      {isLoading ? (
+        <PulseLoader
+          color={`${isThemeDark ? '#3f78cc ' : '#F5DEB3 '}`}
+          size="6px"
+        />
+      ) : (
+        <>{text}</>
+      )}
     </button>
   );
 };

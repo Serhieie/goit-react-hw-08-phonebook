@@ -5,6 +5,7 @@ import { setTheme } from '../../redux/theme/themeReducer.js';
 
 export const ThemeSwitcher = ({ isThemeDark }) => {
   const dispatch = useDispatch();
+
   const toggleTheme = () => {
     dispatch(setTheme(!isThemeDark));
   };
@@ -19,7 +20,7 @@ export const ThemeSwitcher = ({ isThemeDark }) => {
         md3:transform-none  right-[2.8%] top-[28%]
        sm:w-20 sm:h-8 w-20 h-8   mmd2:w-20 mmd2:h-8
          rounded-full   p-1 transition-transform z-99  shadow-inner
-        md:w-16 md:h-7 md:top-[105%] ssm:top-14 `}
+        md:w-16 md:h-7 md:top-[115%] ssm:top-14 ssm2:top-24 `}
     >
       <button onClick={toggleTheme}>
         {isThemeDark ? (

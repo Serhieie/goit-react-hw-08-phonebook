@@ -27,7 +27,7 @@ export function ContactTable({ data, error, isLoading }) {
   }, [data, filter]);
 
   return (
-    <div className="overflow-x-auto w-[92%]">
+    <div className="overflow-x-auto  w-[92%]">
       <div className="h-6">
         {isLoading && !data && (
           <p className="text-center font-light text-xs">Loading...</p>

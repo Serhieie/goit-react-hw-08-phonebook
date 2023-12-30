@@ -1,6 +1,17 @@
 import { Field, ErrorMessage } from 'formik';
+import { useDispatch } from 'react-redux';
+import { PiEyeClosedBold } from 'react-icons/pi';
+import { HiMiniEye } from 'react-icons/hi2';
+import { setShowPass } from '../../redux/theme/themeReducer';
+import { useTheme } from '../../helpers/hooks/theme-hook';
 
 export const RegLogInputs = ({ isThemeDark }) => {
+  const { showPassword } = useTheme();
+  const dispatch = useDispatch();
+
+  const togglePassword = () => {
+    dispatch(setShowPass());
+  };
   return (
     <>
       <label
@@ -65,24 +76,37 @@ export const RegLogInputs = ({ isThemeDark }) => {
         {' '}
         Password{' '}
       </label>
-
-      <Field
-        className={`${
-          isThemeDark
-            ? ' text-darkFontDark bg-sky-900 placeholder:text-darkFontDark '
-            : ' text-darkFont bg-lightPartsColor placeholder:text-darkFont '
-        } mx-auto  py-1 px-5 rounded-sm h-12 
+      <div className="flex">
+        <Field
+          className={`${
+            isThemeDark
+              ? ' text-darkFontDark bg-sky-900 placeholder:text-darkFontDark '
+              : ' text-darkFont bg-lightPartsColor placeholder:text-darkFont '
+          } mx-auto  py-1 px-5 rounded-l-sm h-12 
           border-0 outline-none   
            placeholder:font-base
-            md:h-10 text-xl md:py-0.5 md:px-2 placeholder:opacity-50 
+            md:h-10 text-xl md:py-0.5 md:px-2 pr-8 placeholder:opacity-50 
            ssm:text-base w-full  font-light  transition-all  2xl2:text-2xl`}
-        type="password"
-        name="password"
-        id="password"
-        min={7}
-        placeholder="Enter your password"
-        required
-      />
+          type={showPassword ? 'text' : 'password'}
+          name="password"
+          id="password"
+          min={7}
+          placeholder="Enter your password"
+          required
+        />
+        <button
+          className={`${
+            isThemeDark
+              ? ' text-darkFontDark bg-sky-900 placeholder:text-darkFontDark '
+              : ' text-darkFont bg-lightPartsColor placeholder:text-darkFont '
+          } rounded-r-sm w-12 transition-all`}
+          type="button"
+          onClick={togglePassword}
+        >
+          {showPassword ? <HiMiniEye /> : <PiEyeClosedBold />}
+        </button>
+      </div>
+
       <div className="text-sm h-4 w-full text-center -mt-2">
         <ErrorMessage
           className=" text-errorMsg text-center m-0 p-0"

@@ -6,10 +6,14 @@ export const themeSlice = createSlice({
   name: 'theme',
   initialState: {
     darkTheme: false,
+    showPass: false,
   },
   reducers: {
     setTheme: (state, action) => {
       state.darkTheme = action.payload;
+    },
+    setShowPass: state => {
+      state.showPass = !state.showPass;
     },
   },
 });
@@ -17,7 +21,7 @@ export const themeSlice = createSlice({
 const persistConfig = {
   key: 'theme',
   storage,
-  blacklist: ['contacts', 'form', 'filter'],
+  whitelist: ['darkTheme'],
 };
 
 export const persistedThemeReducer = persistReducer(
@@ -25,5 +29,5 @@ export const persistedThemeReducer = persistReducer(
   themeSlice.reducer
 );
 
-export const { setTheme } = themeSlice.actions;
+export const { setTheme, setShowPass } = themeSlice.actions;
 export const selectDarkTheme = state => state.theme.darkTheme;

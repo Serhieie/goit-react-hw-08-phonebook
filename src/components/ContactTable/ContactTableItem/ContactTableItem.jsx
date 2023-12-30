@@ -1,15 +1,14 @@
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 import { AiOutlineUserDelete } from 'react-icons/ai';
 import { PulseLoader } from 'react-spinners';
 import normalizePhoneNumber from 'helpers/numberNormalize';
-import { getTheme } from '../../../redux/redux-bundle/selectors';
 import { ModalFordelete } from './ModalForDelete';
 import { useState } from 'react';
 import { useDeleteContactMutation } from '../../../redux/contact/contacts-api';
+import { useTheme } from '../../../helpers/hooks/theme-hook';
 
-export function ContactTableItem({ contact, index, data }) {
-  const isThemeDark = useSelector(getTheme);
+export function ContactTableItem({ contact, index }) {
+  const { isThemeDark } = useTheme();
   const windowWidth = window.innerWidth;
   const [modalIsOpen, setIsOpen] = useState(false);
   const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();

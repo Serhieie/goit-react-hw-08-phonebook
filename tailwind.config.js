@@ -6,6 +6,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'strange-stone': "url('/src/img/stone.webp')",
+        'mobile-strange-stone': "url('/src/img/mobile-stone.webp')",
+        'yellow-strange-stone': "url('/src/img/stone-yellow.webp')",
+        'mobile-yellow-strange-stone':
+          "url('/src/img/mobile-yellow-stone.webp')",
+      },
       colors: {
         shadowBox: 'rgb(173, 124, 39)',
         lightPartsColor: 'lightgoldenrodyellow',
@@ -67,6 +74,7 @@ module.exports = {
         lg: { max: '1023px' },
         md: { max: '767px' },
         sm: { max: '639px' },
+        ssm2: { max: '420px' },
         ssm: { max: '375px' },
         sm2: { min: '640px', max: '767px' },
         md2: { min: '768px', max: '1023px' },
@@ -76,6 +84,10 @@ module.exports = {
         xl2: { min: '1280px', max: '1535px' },
         '1xl2': { min: '1265px' },
         '2xl2': { min: '1536px' },
+      },
+      fontFamily: {
+        bigFont: 'Bebas Neue, sans-serif',
+        regularFont: 'Roboto Condensed, sans-serif',
       },
     },
   },

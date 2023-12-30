@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
-import { getTheme, getError } from '../../redux/redux-bundle/selectors';
+import { getTheme } from '../../redux/redux-bundle/selectors';
 
 export const Policy = () => {
-  const error = useSelector(getError);
   const isThemeDark = useSelector(getTheme);
   const [isChecked, setIsChecked] = useState(false);
 
@@ -30,7 +29,7 @@ export const Policy = () => {
         checked={isChecked}
         onChange={handleCheckboxChange}
       />
-      {isChecked && !error && (
+      {isChecked && (
         <span className="absolute top-1.5 left-0.5 pointer-events-none p-0.5 w-full">
           <FaCheck size={16} className="pointer-events-none" />
         </span>

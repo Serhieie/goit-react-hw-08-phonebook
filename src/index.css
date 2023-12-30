@@ -14,9 +14,7 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: lightgoldenrodyellow;
@@ -70,4 +68,8 @@ button:disabled {
     transform: scale(0.2) rotate(360deg);
     opacity: 0.3;
   }
+}
+
+.active {
+  opacity: 1;
 }

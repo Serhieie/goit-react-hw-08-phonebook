@@ -4,7 +4,7 @@ import {
   getLogedIn,
   getisLoadingUser,
   getToken,
-} from './redux/redux-bundle/selectors';
+} from '../redux/redux-bundle/selectors';
 
 export default function PrivateRoute({ children, redirectTo = '/' }) {
   const token = useSelector(getToken);

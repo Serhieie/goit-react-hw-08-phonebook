@@ -5,7 +5,7 @@ const handlePending = state => {
 };
 
 const handleRejected = state => {
-  return { ...state, isLoadingUser: false };
+  return { ...state, error: true, isLoadingUser: false };
 };
 
 const handleRegisterFulfilled = (state, action) => {

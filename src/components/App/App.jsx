@@ -1,17 +1,15 @@
 import React, { useEffect, lazy } from 'react';
-import PrivateRoute from '../../PrivateRoute.jsx';
-import RestrictedRoute from '../../RestrictedRoute.jsx';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  getTheme,
-  getisLoadingUser,
-} from '../../redux/redux-bundle/selectors.js';
+import PrivateRoute from '../PrivateRoute.jsx';
+import RestrictedRoute from '../RestrictedRoute.jsx';
+import { useDispatch } from 'react-redux';
 import { BodyChanger } from 'helpers/useEffectBodyChanger.js';
 import { Routes, Route } from 'react-router-dom';
 import Layout from 'Layout/Layout.jsx';
 import { NoPage } from './NoPage.jsx';
 import { fetchCurrentUser } from '../../redux/auth/operations-auth.js';
 import { SuspenseLoader } from 'components/SuspenseLoader/SuspenseLoader.jsx';
+import { useTheme } from '../../helpers/hooks/theme-hook.js';
+import { useAuth } from '../../helpers/hooks/auth-selector-hook.js';
 
 const HomePage = lazy(() => import('../../pages/homePage/HomePage'));
 const Registration = lazy(() =>
@@ -22,8 +20,8 @@ const Contacts = lazy(() => import('../../pages/contacts/Contacts'));
 
 export function App() {
   const dispatch = useDispatch();
-  const isThemeDark = useSelector(getTheme);
-  const isLoading = useSelector(getisLoadingUser);
+  const { isThemeDark } = useTheme();
+  const { isLoading, user: name } = useAuth();
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
@@ -58,7 +56,7 @@ export function App() {
           path="/home"
           element={
             <PrivateRoute redirectTo="/">
-              <HomePage isThemeDark={isThemeDark} />
+              <HomePage isThemeDark={isThemeDark} name={name.name} />
             </PrivateRoute>
           }
         />
@@ -72,7 +70,7 @@ export function App() {
           }
         />
 
-        <Route path="*" element={<NoPage />} />
+        <Route path="*" element={<NoPage isThemeDark={isThemeDark} />} />
       </Route>
     </Routes>
   );

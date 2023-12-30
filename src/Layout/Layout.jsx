@@ -20,10 +20,10 @@ export default function Layout() {
     flex-col md:items-center md:text-base
     text-xl min-h-[100vh] select-none 
     bg-gradient-to-tr 
-     transition-all relative -z-1`}
+     transition-all relative -z-1 `}
     >
       <Header />
-      <main className="w-full mt-12 relative ">
+      <main className="w-full ssm:mt-6 md:mt-20 md3:mt-12 relative ">
         <Suspense fallback={<SuspenseLoader isThemeDark={isThemeDark} />}>
           <Outlet />
         </Suspense>

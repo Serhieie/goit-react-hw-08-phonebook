@@ -1,10 +1,19 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { changeUserEmail } from '../../redux/auth/slice-auth';
 import { getUserData } from '../../redux/redux-bundle/selectors';
+import { useTheme } from '../../helpers/hooks/theme-hook';
+import { PiEyeClosedBold } from 'react-icons/pi';
+import { HiMiniEye } from 'react-icons/hi2';
+import { setShowPass } from '../../redux/theme/themeReducer';
 
 export const LoginInputs = ({ isThemeDark }) => {
+  const { showPassword } = useTheme();
   const dispatch = useDispatch();
   const user = useSelector(getUserData);
+
+  const togglePasswordVisibility = () => {
+    dispatch(setShowPass());
+  };
 
   const handleInputEmailChange = event => {
     const value = event.target.value;
@@ -48,23 +57,36 @@ export const LoginInputs = ({ isThemeDark }) => {
         {' '}
         Password{' '}
       </label>
-      <input
-        className={`${
-          isThemeDark
-            ? ' text-darkFontDark bg-sky-900 placeholder:text-darkFontDark '
-            : ' text-darkFont bg-lightPartsColor placeholder:text-darkFont '
-        } mx-auto  py-1 px-5 rounded-sm h-12 
+      <div className="flex">
+        <input
+          className={`${
+            isThemeDark
+              ? ' text-darkFontDark bg-sky-900 placeholder:text-darkFontDark '
+              : ' text-darkFont bg-lightPartsColor placeholder:text-darkFont '
+          } mx-auto  py-1 px-5 rounded-l-sm h-12 
           border-0 outline-none   
            placeholder:font-base
             md:h-10 text-xl md:py-0.5 md:px-2 placeholder:opacity-50 
            ssm:text-base w-full  font-light  transition-all  2xl2:text-2xl`}
-        type="password"
-        name="userPassword"
-        id="userPassword"
-        placeholder="Enter your password"
-        min={7}
-        required
-      />
+          type={`${!showPassword ? 'password' : 'text'}`}
+          name="userPassword"
+          id="userPassword"
+          placeholder="Enter your password"
+          min={7}
+          required
+        />
+        <button
+          className={`${
+            isThemeDark
+              ? ' text-darkFontDark bg-sky-900 placeholder:text-darkFontDark '
+              : ' text-darkFont bg-lightPartsColor placeholder:text-darkFont '
+          } rounded-r-sm w-12 transition-all`}
+          type="button"
+          onClick={togglePasswordVisibility}
+        >
+          {showPassword ? <HiMiniEye /> : <PiEyeClosedBold />}
+        </button>
+      </div>
     </>
   );
 };

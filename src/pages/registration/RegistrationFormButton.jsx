@@ -1,10 +1,10 @@
-// import { PulseLoader } from 'react-spinners';
+import { PulseLoader } from 'react-spinners';
 
 export const RegistrationFormButton = ({ isLoading, isThemeDark }) => {
   return (
     <button
       type="submit"
-      // disabled={isLoading}
+      disabled={isLoading}
       className={`${
         isThemeDark
           ? 'shadow-none hover:bg-buttonHoverColorDark text-buttonTextColorDark hover:text-lightPartsColorDark bg-buttonColorDark'
@@ -14,11 +14,14 @@ export const RegistrationFormButton = ({ isLoading, isThemeDark }) => {
         isThemeDark ? 'text-lg md:w-48' : 'text-lg md:w-48'
       } ssm:w-40 ssm:h-10 md2:text-sm`}
     >
-      {/* {isLoading ? (
-        <PulseLoader color="#F5DEB3" size="6px" />
-      ) : ( */}
-      <>Registration</>
-      {/* )} */}
+      {isLoading ? (
+        <PulseLoader
+          color={`${isThemeDark ? '#3f78cc ' : '#F5DEB3 '}`}
+          size="6px"
+        />
+      ) : (
+        <>Registration</>
+      )}
     </button>
   );
 };

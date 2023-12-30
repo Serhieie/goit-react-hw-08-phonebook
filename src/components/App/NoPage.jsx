@@ -1,25 +1,36 @@
-export const NoPage = () => {
+import { NoPageShine } from '../../components/Shine/NoPageShine';
+import { getRandomAvatarPath } from 'helpers/randomAvatar';
+import { useMemo } from 'react';
+
+export const NoPage = ({ isThemeDark }) => {
+  const avatarPath = useMemo(() => getRandomAvatarPath(), []);
+
   return (
-    <div className="select-none flex justify-center mt-24 h-[80vh] ">
-      <div
-        style={{
-          backgroundImage:
-            'url(https://i.pinimg.com/474x/cd/4d/8b/cd4d8b6cbfe89bd196d25416d38c31ae.jpg)',
-        }}
-        className="select-none bg-left-[20%] bg-repeat w-[600px] h-[230px] relative flex flex-col items-center justify-center text-center rounded "
-      >
-        <img
-          className="mt-32"
-          src="https://i.pinimg.com/474x/cd/4d/8b/cd4d8b6cbfe89bd196d25416d38c31ae.jpg"
-          alt="noSignal"
-        />
-        <p className="text-lg font-pixel text-center m-0 bg-black px-2 ">
-          Page not found
-        </p>
-        <h1 className="font-errorFont text-[200px] select-none font-extrabold p-0 mt-4">
+    <div
+      className="select-none mt-0 h-[92vh] flex flex-col items-center justify-center"
+      style={{
+        backgroundImage: `url(${avatarPath})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'top',
+      }}
+    >
+      <div className="relative bg-transparent bg-opacity-20 p-14  rounded-[60px] backdrop-filter backdrop-blur-sm">
+        <h1
+          className={`${
+            isThemeDark ? 'text-blue-300' : 'text-yellow-200'
+          } font-errorFont md:text-[120px] text-[200px] text-center select-none font-extrabold p-0 mt-10`}
+        >
           404
         </h1>
+        <p
+          className={`${
+            isThemeDark ? 'text-blue-300' : 'text-yellow-200'
+          } text-lg font-pixel text-center mt-20 px-2`}
+        >
+          Page not found
+        </p>
       </div>
+      <NoPageShine isThemeDark={isThemeDark} />
     </div>
   );
 };
