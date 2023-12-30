@@ -20,7 +20,7 @@ export const ThemeSwitcher = ({ isThemeDark }) => {
         md3:transform-none  right-[2.8%] top-[28%]
        sm:w-20 sm:h-8 w-20 h-8   mmd2:w-20 mmd2:h-8
          rounded-full   p-1 transition-transform z-99  shadow-inner
-        md:w-16 md:h-7 md:top-[115%] ssm:top-14 ssm2:top-24 `}
+        md:w-16 md:h-7 md:top-[125%] ssm:top-20 ssm2:top-28 `}
     >
       <button onClick={toggleTheme}>
         {isThemeDark ? (
