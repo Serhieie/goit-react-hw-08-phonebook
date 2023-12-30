@@ -38,7 +38,7 @@ export default function Login() {
             : ' from-smallWraperGradient1 shadow-shadowBox to-smallWraperGradient2 '
         }  flex gap-2 flex-col md3:w-5/12 pb-9   pt-20  px-10 rounded-sm
           shadow-lg bg-gradient-to-tr md2:mt-4  md2:pt-8  md:pb-14 md:px-5 md:min-h-0 md:w-[99%]
-          transition-all  ssm2:mt-0 ssm2:pt-20  mx-auto z-20 mt-2`}
+          transition-all  ssm2:-mt-4 ssm2:pt-28  mx-auto z-20 mt-2`}
       >
         <h1 className="text-center text-4xl m-0 md:text-2xl md2:text-2xl font-normal mt-2">
           Login
