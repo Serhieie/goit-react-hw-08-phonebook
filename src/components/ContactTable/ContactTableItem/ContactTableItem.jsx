@@ -46,7 +46,7 @@ export function ContactTableItem({ contact, index }) {
         width="44%"
         className={`${
           isThemeDark ? ' bg-lightPartsColorDark ' : ' bg-lightPartsColor '
-        }p-1 text-center   md:text-md ssm:text-[12px]  `}
+        }p-1 text-center   md:text-md   `}
       >
         {contact.name}
       </td>
@@ -54,7 +54,7 @@ export function ContactTableItem({ contact, index }) {
         width="42%"
         className={`${
           isThemeDark ? ' bg-lightPartsColorDark ' : ' bg-lightPartsColor '
-        }p-1 text-center   md:text-md ssm:text-[12px] `}
+        }p-1 text-center   md:text-md  `}
       >
         {normalizePhoneNumber(contact.number)}
       </td>
@@ -62,7 +62,7 @@ export function ContactTableItem({ contact, index }) {
         width="15%"
         className={`${
           isThemeDark ? ' bg-lightPartsColorDark ' : ' bg-lightPartsColor '
-        } p-1 text-center   md:text-md ssm:text-sm  pr-3 1xl2:pr-5`}
+        } p-1 text-center   md:text-md   pr-3 1xl2:pr-5`}
       >
         <button
           id="delete-btn"
@@ -72,7 +72,7 @@ export function ContactTableItem({ contact, index }) {
             isThemeDark
               ? ' bg-buttonColorDark hover:bg-buttonHoverColorDark text-lightPartsColorDark hover:text-darkFontDark'
               : ' bg-buttonColor hover:bg-buttonHoverColor text-lightPartsColor '
-          } mx-auto border-none
+          } mx-auto border-none 1xl2:text-lg
            py-1 px-2 min-w-[50px] min-h-[28px] text-xs cursor-pointer 
            duration-300 flex text-center items-center 
             rounded-sm font-light justify-center sm:min-h-[20px] sm:min-w-[30px]`}

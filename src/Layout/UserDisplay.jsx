@@ -32,7 +32,7 @@ export const UserDisplay = ({ fullState, handleLogout, isThemeDark }) => {
               isThemeDark
                 ? 'text-blue-300 after:bg-blue-500 '
                 : 'text-filterTextColor after:bg-filterTextColor '
-            } ssm:text-xs`}
+            } ssm:text-xs 1xl2:text-2xl`}
           >
             {`${fullState.user.name}`}
           </p>

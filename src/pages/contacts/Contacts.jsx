@@ -8,11 +8,11 @@ export default function Contacts({ isThemeDark }) {
   return (
     <div
       className="flex gap-4 sm:gap-0 justify-around mx-auto 
-    w-11/12   p-14 md3:p-4 1xl2:mt-5 ssm:p-2 ssm:pt-12 ssm:mt-0 rounded shadow-xl
+    w-11/12   p-14 md3:p-4 1xl2:mt-5  ssm:pt-4  rounded shadow-xl
     md:flex-col md:items-center md:text-base md:px-1.5 md:w-11/12
     text-xl min-h-482 ssm:min-h-762 select-none 
     bg-gradient-to-tl 
-      relative "
+      relative ssm2:w-[100%] ssm2:p-0  ssm2:m-0 "
     >
       <Helmet>
         <title>Stone-Contacts</title>

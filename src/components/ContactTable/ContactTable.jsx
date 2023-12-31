@@ -27,7 +27,7 @@ export function ContactTable({ data, error, isLoading }) {
   }, [data, filter]);
 
   return (
-    <div className="overflow-x-auto  w-[92%]">
+    <div className="overflow-x-auto  w-[92%] ssm2:w-12/12 ssm2:p-0 ssm2:m-0 ssm2:pb-10 ">
       <div className="h-6">
         {isLoading && !data && (
           <p className="text-center font-light text-xs">Loading...</p>
@@ -51,10 +51,10 @@ export function ContactTable({ data, error, isLoading }) {
             : 'border-tableBorderColor '
         } border-2  border-collapese 
         mt-5 mb-5 block mx-auto overflow-auto w-full h-[490px] 
-        ssm:text-xs `}
+         ssm2:w-12/12 ssm2:p-0 ssm2:m-0 ssm2:text-base`}
       >
         <TableHead isThemeDark={isThemeDark} />
-        <tbody className="max-h-fit max-w-full text-xl sm:text-sm md2:text-sm ssm:text-xs  select-text">
+        <tbody className="max-h-fit max-w-full text-xl ssm:text-base    ssm2:text-lg  select-text 1xl2:text-2xl">
           {!error &&
             getVisibleContacts.map((contact, index) => (
               <ContactTableItem

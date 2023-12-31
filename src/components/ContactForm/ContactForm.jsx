@@ -60,7 +60,7 @@ export function ContactForm({ isThemeDark }) {
             : ' from-smallWraperGradient1 shadow-shadowBox to-smallWraperGradient2 '
         }  flex gap-2 flex-col w-1/3 py-20 pr-7 pl-5 rounded-sm
           shadow-lg bg-gradient-to-tr md:py-12 md:px-5 md:min-h-0 md:w-[99%]
-          transition-all ssm:pt-14 overflow-hidden`}
+          transition-all  overflow-hidden ssm2:w-12/12 ssm2:py-6 ssm2:m-0 ssm2:pt-16`}
       >
         <h1 className="text-center text-3xl m-0 md:text-xl md2:text-xl font-normal">
           Add Contact Field

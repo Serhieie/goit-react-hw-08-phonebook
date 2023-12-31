@@ -12,7 +12,8 @@ export const FilterAndTable = ({ data, isThemeDark }) => {
       w-8/12 flex justify-center items-center flex-col
       px-5 pr-4 rounded-sm shadow-lg min-h-562 ssm:min-h-762
       select-none bg-gradient-to-tr
-      relative md:mt-3 md:pt-0 md:pb-7 md:px-1 md2:px-2 md:w-11/12  transition-all`}
+      relative md:mt-3 md:pt-0 md:pb-7 md:px-1 md2:px-2 md:w-11/12
+      transition-all ssm2:w-full ssm2:p-0 ssm2:mt-2`}
     >
       <Filter />
       <ContactTable data={data} />

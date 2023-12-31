@@ -1,6 +1,6 @@
 export const TableHead = ({ isThemeDark }) => {
   return (
-    <thead className="text-sm  right-0 left-0 top-0 w-full ">
+    <thead className="text-sm  right-0 left-0 top-0 w-full ssm2:text-xl">
       <tr
         className={`${
           isThemeDark
