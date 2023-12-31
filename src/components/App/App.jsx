@@ -15,7 +15,7 @@ const HomePage = lazy(() => import('../../pages/РomePage/HomePage.jsx'));
 const Registration = lazy(() =>
   import('../../pages/Registration/Registration.jsx')
 );
-const Login = lazy(() => import('../../pages/Login/UserLogin.jsx'));
+const Login = lazy(() => import('../../pages/Login/Login.jsx'));
 const Contacts = lazy(() => import('../../pages/Сontacts/Contacts.jsx'));
 
 export function App() {
