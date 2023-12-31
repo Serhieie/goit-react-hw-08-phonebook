@@ -1,5 +1,5 @@
 import { Formik, Form } from 'formik';
-import { schema } from 'constants';
+import { schema } from '../../helpers/constants';
 import { succesMessage, nameCheckerError } from 'helpers/notiflix';
 import { Inputs } from './ContactFormInput/ContactFormInput';
 import normalizePhoneNumber from 'helpers/numberNormalize';

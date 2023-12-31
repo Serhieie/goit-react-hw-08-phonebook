@@ -4,19 +4,19 @@ import RestrictedRoute from '../RestrictedRoute.jsx';
 import { useDispatch } from 'react-redux';
 import { BodyChanger } from 'helpers/useEffectBodyChanger.js';
 import { Routes, Route } from 'react-router-dom';
-import Layout from 'Layout/Layout.jsx';
+import Layout from 'components/Layout/Layout.jsx';
 import { NoPage } from './NoPage.jsx';
 import { fetchCurrentUser } from '../../redux/auth/operations-auth.js';
 import { SuspenseLoader } from 'components/SuspenseLoader/SuspenseLoader.jsx';
 import { useTheme } from '../../helpers/hooks/theme-hook.js';
 import { useAuth } from '../../helpers/hooks/auth-selector-hook.js';
 
-const HomePage = lazy(() => import('../../pages/homePage/HomePage'));
+const HomePage = lazy(() => import('../../pages/РomePage/HomePage.jsx'));
 const Registration = lazy(() =>
-  import('../../pages/registration/Registration')
+  import('../../pages/Registration/Registration.jsx')
 );
-const Login = lazy(() => import('../../pages/login/Login'));
-const Contacts = lazy(() => import('../../pages/contacts/Contacts'));
+const Login = lazy(() => import('../../pages/Login/Login.jsx'));
+const Contacts = lazy(() => import('../../pages/Сontacts/Contacts.jsx'));
 
 export function App() {
   const dispatch = useDispatch();

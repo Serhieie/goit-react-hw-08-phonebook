@@ -1,10 +1,9 @@
-// import { Main } from './Main';
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import { useSelector } from 'react-redux';
-import { getTheme } from '../redux/redux-bundle/selectors.js';
-import { Header } from './Header';
-import { SuspenseLoader } from '../components/SuspenseLoader/SuspenseLoader.jsx';
+import { getTheme } from '../../redux/selectors.js';
+import { Header } from './Header.jsx';
+import { SuspenseLoader } from '../SuspenseLoader/SuspenseLoader.jsx';
 
 export default function Layout() {
   const isThemeDark = useSelector(getTheme);

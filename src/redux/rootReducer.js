@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { contactsApi } from '../contact/contacts-api';
-import { persistedFilterReducer } from './filterSlice';
-import { persistedThemeReducer } from '../theme/themeReducer.js';
-import { persistedAuthReducer } from '../auth/slice-auth';
+import { contactsApi } from './contact/contacts-api';
+import { persistedFilterReducer } from './filter/filterSlice';
+import { persistedThemeReducer } from './theme/themeReducer.js';
+import { persistedAuthReducer } from './auth/slice-auth';
 
 const rootReducer = combineReducers({
   [contactsApi.reducerPath]: contactsApi.reducer,

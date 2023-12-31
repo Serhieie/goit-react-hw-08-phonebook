@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
-import { getTheme } from '../../redux/redux-bundle/selectors';
+import { getTheme } from '../../redux/selectors';
 
 export const Policy = () => {
   const isThemeDark = useSelector(getTheme);

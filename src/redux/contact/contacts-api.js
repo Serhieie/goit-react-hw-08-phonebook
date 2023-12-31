@@ -17,6 +17,7 @@ export const contactsApi = createApi({
       return { error: error.message || 'Something went wrong!' };
     }
   },
+
   tagTypes: ['Contact'],
   endpoints: builder => ({
     getAllContacts: builder.query({
