@@ -64,7 +64,6 @@ export function App() {
           path="/contacts"
           element={
             <PrivateRoute redirectTo="/">
-              {' '}
               <Contacts isThemeDark={isThemeDark} />
             </PrivateRoute>
           }
