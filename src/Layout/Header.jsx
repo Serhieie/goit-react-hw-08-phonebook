@@ -1,11 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { getTheme } from '../../redux/selectors.js';
-import { ThemeSwitcher } from '../App/ThemeSwitcher.jsx';
+import { getTheme } from '../redux/redux-bundle/selectors';
+import { ThemeSwitcher } from '../components/App/ThemeSwitcher.jsx';
 import { AuthNav } from './AuthNav.jsx';
 import { MainNav } from './MainNav.jsx';
 import { UserDisplay } from './UserDisplay.jsx';
-import { logout } from '../../redux/auth/operations-auth.js';
-import { useAuth } from '../../helpers/hooks/auth-selector-hook.js';
+import { logout } from '../redux/auth/operations-auth.js';
+import { useAuth } from '../helpers/hooks/auth-selector-hook.js';
 
 export const Header = () => {
   const dispatch = useDispatch();

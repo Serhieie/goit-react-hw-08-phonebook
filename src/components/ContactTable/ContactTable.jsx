@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { ContactTableItem } from './ContactTableItem/ContactTableItem';
-import { getFilterValue, getTheme } from '../../redux/selectors';
+import { getFilterValue, getTheme } from '../../redux/redux-bundle/selectors';
 import { TableHead } from './TableHead/TableHead';
 
 export function ContactTable({ data, error, isLoading }) {

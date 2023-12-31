@@ -7,7 +7,7 @@ import {
   getLogedIn,
   getUserData,
   getAvatar,
-} from '../../redux/selectors';
+} from '../../redux/redux-bundle/selectors';
 
 export const useAuth = () => {
   const isLoggedIn = useSelector(getLogedIn);

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { changeUserEmail } from '../../redux/auth/slice-auth';
-import { getUserData } from '../../redux/selectors';
+import { getUserData } from '../../redux/redux-bundle/selectors';
 import { useTheme } from '../../helpers/hooks/theme-hook';
 import { PiEyeClosedBold } from 'react-icons/pi';
 import { HiMiniEye } from 'react-icons/hi2';

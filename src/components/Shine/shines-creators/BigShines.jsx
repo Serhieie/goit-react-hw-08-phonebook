@@ -1,6 +1,6 @@
 import React from 'react';
 import { getRandomNumber } from '../../../helpers/getRandomNumber';
-import { gradientClasses, blurSizes } from 'helpers/constants/gradient';
+import { gradientClasses, blurSizes } from 'constants/gradient';
 
 const BigShine = ({ isThemeDark, left, top }) => {
   const colorKeys = Object.keys(gradientClasses);

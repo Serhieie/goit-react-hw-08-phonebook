@@ -1,6 +1,10 @@
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { getLogedIn, getisLoadingUser, getToken } from '../redux/selectors';
+import {
+  getLogedIn,
+  getisLoadingUser,
+  getToken,
+} from '../redux/redux-bundle/selectors';
 
 export default function PrivateRoute({ children, redirectTo = '/' }) {
   const token = useSelector(getToken);
