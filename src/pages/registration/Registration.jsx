@@ -5,7 +5,7 @@ import { RegLogInputs } from './RegistrInputs';
 import { RegistrationShine } from 'components/Shine/RegistrationShine';
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
-import { registrationSchema } from '../../constants/schema';
+import { registrationSchema } from '../../helpers/constants/schema';
 import { useAuth } from '../../helpers/hooks/auth-selector-hook';
 import { useTheme } from '../../helpers/hooks/theme-hook';
 import { Helmet } from 'react-helmet';

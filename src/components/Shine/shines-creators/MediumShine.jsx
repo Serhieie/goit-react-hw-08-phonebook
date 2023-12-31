@@ -1,5 +1,5 @@
 import { getRandomNumber } from '../../../helpers/getRandomNumber';
-import { gradientClasses, blurSizes } from 'constants/gradient';
+import { gradientClasses, blurSizes } from 'helpers/constants/gradient';
 
 const MediumShine = ({ isThemeDark, left, top }) => {
   const colorKeys = Object.keys(gradientClasses);

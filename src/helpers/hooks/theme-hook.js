@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { getTheme, showPass } from '../../redux/redux-bundle/selectors';
+import { getTheme, showPass } from '../../redux/selectors';
 
 export const useTheme = () => {
   const isThemeDark = useSelector(getTheme);
