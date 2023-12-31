@@ -74,7 +74,7 @@ module.exports = {
         lg: { max: '1023px' },
         md: { max: '767px' },
         sm: { max: '639px' },
-        ssm2: { max: '420px' },
+        ssm2: { max: '440px' },
         ssm: { max: '375px' },
         sm2: { min: '640px', max: '767px' },
         md2: { min: '768px', max: '1023px' },
