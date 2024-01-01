@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 export const TableHead = ({ isThemeDark }) => {
   return (
-    <thead className="text-sm  right-0 left-0 top-0 w-full ssm2:text-xl 2xl:text-2xl">
+    <thead className="text-lg  right-0 left-0 top-0 w-full  1xl2:text-2xl">
       <tr
         className={`${
           isThemeDark
