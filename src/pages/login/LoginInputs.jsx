@@ -5,26 +5,34 @@ import { useTheme } from '../../helpers/hooks/theme-hook';
 import { PiEyeClosedBold } from 'react-icons/pi';
 import { HiMiniEye } from 'react-icons/hi2';
 import { setShowPass } from '../../redux/theme/themeReducer';
+import PropTypes from 'prop-types';
 
-export const LoginInputs = ({ isThemeDark }) => {
+export const LoginInputs = ({ windowSize, isThemeDark }) => {
   const { showPassword } = useTheme();
   const dispatch = useDispatch();
   const user = useSelector(getUserData);
 
+  //by the way better to leave it here with use state
+  //Im not shure need I set it in LS or not that why its with redux
   const togglePasswordVisibility = () => {
     dispatch(setShowPass());
   };
 
+  //setting email to LS
   const handleInputEmailChange = event => {
     const value = event.target.value;
-
     dispatch(changeUserEmail(value));
   };
+
+  //resize styles
+  const formWidthClass = windowSize.height > 460 ? 'md3:mt-9' : 'md3:mt-0';
 
   return (
     <>
       <label
-        className={`mt-9 text-xl flex items-center gap-2 md:ml-2 
+        className={`
+        ${formWidthClass}
+        mt-9 text-xl flex items-center gap-2 md:ml-2 
       md2:text-sm font-light sm:mt-1`}
         htmlFor="userEmail"
       >
@@ -33,7 +41,8 @@ export const LoginInputs = ({ isThemeDark }) => {
       </label>
       <input
         onChange={handleInputEmailChange}
-        className={`${
+        className={`
+        ${
           isThemeDark
             ? ' text-darkFontDark bg-sky-900 placeholder:text-darkFontDark '
             : ' text-darkFont bg-lightPartsColor placeholder:text-darkFont '
@@ -89,4 +98,8 @@ export const LoginInputs = ({ isThemeDark }) => {
       </div>
     </>
   );
+};
+
+LoginInputs.propTypes = {
+  isThemeDark: PropTypes.bool.isRequired,
 };

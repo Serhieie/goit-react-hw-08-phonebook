@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const HomePageShine = ({ isThemeDark }) => {
   return (
     <>
@@ -122,4 +124,8 @@ export const HomePageShine = ({ isThemeDark }) => {
       </div>
     </>
   );
+};
+
+HomePageShine.propTypes = {
+  isThemeDark: PropTypes.bool.isRequired,
 };

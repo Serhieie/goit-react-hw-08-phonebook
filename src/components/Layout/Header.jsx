@@ -12,6 +12,7 @@ export const Header = () => {
   const isThemeDark = useSelector(getTheme);
   const fullState = useAuth();
 
+  //logout operation
   const handleLogout = async () => {
     dispatch(logout());
   };

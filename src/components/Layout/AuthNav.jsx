@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 export const AuthNav = ({ isThemeDark }) => {
@@ -40,4 +41,8 @@ export const AuthNav = ({ isThemeDark }) => {
       </NavLink>
     </div>
   );
+};
+
+AuthNav.propTypes = {
+  isThemeDark: PropTypes.bool.isRequired,
 };

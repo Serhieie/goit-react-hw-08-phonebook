@@ -23,10 +23,12 @@ export function App() {
   const { isThemeDark } = useTheme();
   const { isLoading, user: name } = useAuth();
 
+  //fetch current user
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
+  //listener for body changing color
   useEffect(() => {
     BodyChanger(isThemeDark);
   }, [isThemeDark]);

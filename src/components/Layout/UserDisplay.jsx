@@ -1,10 +1,11 @@
 import { FiLogOut } from 'react-icons/fi';
+import PropTypes from 'prop-types';
 
 export const UserDisplay = ({ fullState, handleLogout, isThemeDark }) => {
   return (
     <>
       {fullState.isLoggedIn ? (
-        <div className="1xl2:mr-40  flex items-center gap-6 ssm:gap-2">
+        <div className="1xl2:mr-40  flex items-center gap-6 ssm:gap-2 ">
           <div
             className={`${
               isThemeDark
@@ -51,4 +52,10 @@ export const UserDisplay = ({ fullState, handleLogout, isThemeDark }) => {
       ) : null}
     </>
   );
+};
+
+UserDisplay.propTypes = {
+  fullState: PropTypes.object.isRequired,
+  handleLogout: PropTypes.func.isRequired,
+  isThemeDark: PropTypes.bool.isRequired,
 };

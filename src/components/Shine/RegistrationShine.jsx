@@ -1,6 +1,9 @@
-export const RegistrationShine = ({ isThemeDark }) => {
+import PropTypes from 'prop-types';
+
+export const RegistrationShine = ({ windowSize, isThemeDark }) => {
+  const formWidthClass = windowSize.height > 440 ? 'block' : 'hidden';
   return (
-    <>
+    <div className={`${formWidthClass}`}>
       <div
         className={`${
           isThemeDark ? 'top-52 right-12' : 'top-32 left-12'
@@ -32,6 +35,10 @@ export const RegistrationShine = ({ isThemeDark }) => {
           rounded-full pointer-events-none animate-shine blur-3xl`}
         ></div>
       </div>
-    </>
+    </div>
   );
+};
+
+RegistrationShine.propTypes = {
+  isThemeDark: PropTypes.bool.isRequired,
 };

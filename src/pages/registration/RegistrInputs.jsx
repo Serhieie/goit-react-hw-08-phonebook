@@ -4,18 +4,24 @@ import { PiEyeClosedBold } from 'react-icons/pi';
 import { HiMiniEye } from 'react-icons/hi2';
 import { setShowPass } from '../../redux/theme/themeReducer';
 import { useTheme } from '../../helpers/hooks/theme-hook';
+import PropTypes from 'prop-types';
 
-export const RegLogInputs = ({ isThemeDark }) => {
+export const RegLogInputs = ({ windowSize, isThemeDark }) => {
   const { showPassword } = useTheme();
   const dispatch = useDispatch();
 
   const togglePassword = () => {
     dispatch(setShowPass());
   };
+
+  const widthClass = windowSize.height > 460 ? 'md3:mt-2' : 'md3:mt-0';
+  const withInputClass = windowSize.height > 460 ? 'md3:mt-2' : 'md3:mt-0';
   return (
     <>
       <label
-        className={`mt-6 text-xl flex items-center gap-2 md:ml-2 md:w-10/12
+        className={`
+        ${widthClass}
+        mt-6 text-xl flex items-center gap-2 md:ml-2 md:w-10/12
       md2:text-sm font-light sm:mt-1`}
         htmlFor="user-name"
       >
@@ -42,7 +48,9 @@ export const RegLogInputs = ({ isThemeDark }) => {
         <ErrorMessage className=" text-errorMsg" name="name" component="p" />
       </div>
       <label
-        className={`mt-2 text-xl flex items-center gap-2 md:ml-2 
+        className={`
+         ${withInputClass}
+        mt-2 text-xl flex items-center gap-2 md:ml-2 
       md2:text-sm font-light sm:mt-1`}
         htmlFor="user-email"
       >
@@ -69,7 +77,9 @@ export const RegLogInputs = ({ isThemeDark }) => {
         <ErrorMessage className=" text-errorMsg" name="email" component="p" />
       </div>
       <label
-        className={`mt-2 text-xl flex items-center gap-2 md:ml-2 
+        className={`
+         ${withInputClass}
+        mt-2 text-xl flex items-center gap-2 md:ml-2 
       md2:text-sm font-light sm:mt-1`}
         htmlFor="user-phone"
       >
@@ -116,4 +126,8 @@ export const RegLogInputs = ({ isThemeDark }) => {
       </div>
     </>
   );
+};
+
+RegLogInputs.propTypes = {
+  isThemeDark: PropTypes.bool.isRequired,
 };

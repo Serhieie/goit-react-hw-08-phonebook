@@ -1,15 +1,26 @@
 import { PulseLoader } from 'react-spinners';
+import PropTypes from 'prop-types';
 
-export const LoginFormButton = ({ text, isLoading, isThemeDark }) => {
+export const LoginFormButton = ({
+  windowSize,
+  text,
+  isLoading,
+  isThemeDark,
+}) => {
+  //styles for window resize
+  const formWidthClass = windowSize.height > 460 ? 'md3:mt-24' : 'md3:mt-4  ';
+  //styles for theme
+  const themeStyles = isThemeDark
+    ? 'shadow-none hover:bg-buttonHoverColorDark text-buttonTextColorDark hover:text-lightPartsColorDark bg-buttonColorDark'
+    : 'shadow-shadowBox hover:bg-buttonHoverColor text-buttonTextColor bg-buttonColor';
   return (
     <button
       type="submit"
       disabled={isLoading}
-      className={`${
-        isThemeDark
-          ? 'shadow-none hover:bg-buttonHoverColorDark text-buttonTextColorDark hover:text-lightPartsColorDark bg-buttonColorDark'
-          : 'shadow-shadowBox hover:bg-buttonHoverColor text-buttonTextColor bg-buttonColor'
-      } text-center font-light w-40 h-11 rounded-sm border-none outline-none 
+      className={`
+       ${formWidthClass} 
+        ${themeStyles} 
+      text-center font-light w-40 h-11 rounded-sm border-none outline-none 
       mx-auto cursor-pointer shadow-md mt-28 mb-8 flex items-center justify-around transition-all duration-300 ${
         isThemeDark ? 'text-lg md:w-48' : 'text-lg md:w-48'
       } ssm:w-40 ssm:h-10 md2:text-sm `}
@@ -24,4 +35,10 @@ export const LoginFormButton = ({ text, isLoading, isThemeDark }) => {
       )}
     </button>
   );
+};
+
+LoginFormButton.propTypes = {
+  isThemeDark: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  text: PropTypes.string.isRequired,
 };

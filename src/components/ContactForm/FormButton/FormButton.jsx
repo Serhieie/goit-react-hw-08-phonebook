@@ -1,5 +1,6 @@
 import { AiOutlineUserAdd } from 'react-icons/ai';
 import { PulseLoader } from 'react-spinners';
+import PropTypes from 'prop-types';
 
 export const FormButton = ({ isLoading, isThemeDark }) => {
   return (
@@ -26,4 +27,9 @@ export const FormButton = ({ isLoading, isThemeDark }) => {
       )}
     </button>
   );
+};
+
+FormButton.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  isThemeDark: PropTypes.bool.isRequired,
 };

@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useDeleteContactMutation } from '../../../redux/contact/contacts-api';
 import { useTheme } from '../../../helpers/hooks/theme-hook';
 
+//ContactTableItem + Modal window for contact delete
 export function ContactTableItem({ contact, index }) {
   const { isThemeDark } = useTheme();
   const windowWidth = window.innerWidth;
@@ -38,7 +39,7 @@ export function ContactTableItem({ contact, index }) {
         width="5%"
         className={`${
           isThemeDark ? ' bg-lightPartsColorDark ' : ' bg-lightPartsColor '
-        }p-1 text-cente `}
+        }p-1 text-cente pl-4 ssm2:pl-2`}
       >
         {index + 1}
       </td>
@@ -62,7 +63,7 @@ export function ContactTableItem({ contact, index }) {
         width="15%"
         className={`${
           isThemeDark ? ' bg-lightPartsColorDark ' : ' bg-lightPartsColor '
-        } p-1 text-center   md:text-md   pr-3 1xl2:pr-5`}
+        } p-1 text-center   md:text-md   pr-3 1xl2:pr-6 `}
       >
         <button
           id="delete-btn"

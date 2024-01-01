@@ -1,6 +1,7 @@
 import { LiaUserEditSolid } from 'react-icons/lia';
 import { FiPhoneMissed } from 'react-icons/fi';
 import { Field } from 'formik';
+import PropTypes from 'prop-types';
 
 export function Inputs({ isThemeDark }) {
   return (
@@ -53,3 +54,7 @@ export function Inputs({ isThemeDark }) {
     </>
   );
 }
+
+Inputs.propTypes = {
+  isThemeDark: PropTypes.bool.isRequired,
+};

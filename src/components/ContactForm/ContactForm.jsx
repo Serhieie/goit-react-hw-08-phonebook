@@ -1,4 +1,5 @@
 import { Formik, Form } from 'formik';
+import PropTypes from 'prop-types';
 import { schema } from '../../helpers/constants';
 import { succesMessage, nameCheckerError } from 'helpers/notiflix';
 import { Inputs } from './ContactFormInput/ContactFormInput';
@@ -26,6 +27,7 @@ export function ContactForm({ isThemeDark }) {
     let someNum = normalizePhoneNumber(phone);
     let normName = normalizeName(name);
 
+    //Cheking contact wich already exist
     const isNameExists =
       Array.isArray(data) &&
       data.some(contact => {
@@ -36,11 +38,11 @@ export function ContactForm({ isThemeDark }) {
       data.some(contact => {
         return normalizePhoneNumber(contact.number) === someNum;
       });
-
     if (isNameExists && isPhoneExists) {
       return nameCheckerError();
     }
 
+    //adding contact
     addContact({ name: normName, number: someNum });
     succesMessage();
     resetForm();
@@ -72,3 +74,7 @@ export function ContactForm({ isThemeDark }) {
     </Formik>
   );
 }
+
+ContactForm.propTypes = {
+  isThemeDark: PropTypes.bool.isRequired,
+};

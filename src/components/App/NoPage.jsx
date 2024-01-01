@@ -1,5 +1,6 @@
 import { NoPageShine } from '../../components/Shine/NoPageShine';
 import { getRandomAvatarPath } from 'helpers/randomAvatar';
+import PropTypes from 'prop-types';
 import { useMemo } from 'react';
 
 export const NoPage = ({ isThemeDark }) => {
@@ -33,4 +34,8 @@ export const NoPage = ({ isThemeDark }) => {
       <NoPageShine isThemeDark={isThemeDark} />
     </div>
   );
+};
+
+NoPage.propTypes = {
+  isThemeDark: PropTypes.bool.isRequired,
 };

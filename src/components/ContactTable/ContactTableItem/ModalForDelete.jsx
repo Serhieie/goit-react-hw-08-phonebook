@@ -1,6 +1,5 @@
 import { settings, settings2 } from 'helpers/deleteModalSettings';
 import { useRef } from 'react';
-
 import Modal from 'react-modal';
 
 Modal.setAppElement('#root');
@@ -43,7 +42,7 @@ export const ModalFordelete = ({
           }text-4  
             border-none py-3 px-10 rounded-0.5 cursor-pointer 
             duration-300 mx-auto  md:py-2 md:px-5
-             font-light`}
+             font-light 2xl:text-xl`}
         >
           Delete
         </button>
@@ -56,7 +55,7 @@ export const ModalFordelete = ({
           }text-4  
             border-none py-3 px-10 rounded-0.5 cursor-pointer 
             duration-300 mx-auto  md:py-2 md:px-5
-            font-light `}
+            font-light 2xl:text-xl`}
         >
           Cancel
         </button>

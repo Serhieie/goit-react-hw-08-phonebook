@@ -2,6 +2,7 @@ import { FaRegMoon } from 'react-icons/fa';
 import { FiSun } from 'react-icons/fi';
 import { useDispatch } from 'react-redux';
 import { setTheme } from '../../redux/theme/themeReducer.js';
+import PropTypes from 'prop-types';
 
 export const ThemeSwitcher = ({ isThemeDark }) => {
   const dispatch = useDispatch();
@@ -47,4 +48,8 @@ export const ThemeSwitcher = ({ isThemeDark }) => {
       </button>
     </div>
   );
+};
+
+ThemeSwitcher.propTypes = {
+  isThemeDark: PropTypes.bool.isRequired,
 };

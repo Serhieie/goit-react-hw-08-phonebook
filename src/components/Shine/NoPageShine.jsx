@@ -1,6 +1,7 @@
 import { generateExtraSmallShines } from './shines-creators/ExtraSmallShine';
 import { generateMediumShines } from './shines-creators/MediumShine';
 import { generateBigShines } from './shines-creators/BigShines';
+import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 
 export const NoPageShine = ({ isThemeDark }) => {
@@ -8,6 +9,7 @@ export const NoPageShine = ({ isThemeDark }) => {
   const [mediumShines, setMediumShines] = useState([]);
   const [bigShines, setBigShines] = useState([]);
 
+  //start to generate shines just for 404 page
   useEffect(() => {
     setTimeout(() => {
       const small = generateExtraSmallShines(40, isThemeDark);
@@ -32,4 +34,8 @@ export const NoPageShine = ({ isThemeDark }) => {
       {bigShines}
     </>
   );
+};
+
+NoPageShine.propTypes = {
+  isThemeDark: PropTypes.bool.isRequired,
 };

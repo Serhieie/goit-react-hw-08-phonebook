@@ -3,16 +3,23 @@ import { FaCheck } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { getTheme } from '../../redux/selectors';
 
-export const Policy = () => {
+export const Policy = ({ windowSize }) => {
   const isThemeDark = useSelector(getTheme);
   const [isChecked, setIsChecked] = useState(false);
 
+  //just stilization of checkbox
   const handleCheckboxChange = () => {
     setIsChecked(prevState => !prevState);
   };
 
+  const widthClass = windowSize.height > 460 ? 'md3:mt-9' : 'md3:mt-2';
+
   return (
-    <div className="mt-10 w-full max-w-[500px] mx-auto flex relative">
+    <div
+      className={`
+    ${widthClass}
+    mt-10 w-full max-w-[500px] mx-auto flex relative`}
+    >
       <input
         className={`${
           isThemeDark

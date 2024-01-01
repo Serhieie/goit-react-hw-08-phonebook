@@ -1,4 +1,5 @@
 import { PulseLoader } from 'react-spinners';
+import PropTypes from 'prop-types';
 
 export const SuspenseLoader = ({ isThemeDark }) => {
   return (
@@ -15,4 +16,8 @@ export const SuspenseLoader = ({ isThemeDark }) => {
       </div>
     </div>
   );
+};
+
+SuspenseLoader.propTypes = {
+  isThemeDark: PropTypes.bool.isRequired,
 };

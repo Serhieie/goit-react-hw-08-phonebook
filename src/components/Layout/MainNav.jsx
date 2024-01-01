@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export const MainNav = ({ isThemeDark, isLoggedIn }) => {
   return (
@@ -45,4 +46,9 @@ export const MainNav = ({ isThemeDark, isLoggedIn }) => {
       ) : null}
     </div>
   );
+};
+
+MainNav.propTypes = {
+  isLoading: PropTypes.bool,
+  isThemeDark: PropTypes.bool.isRequired,
 };

@@ -1,6 +1,7 @@
 import { ContactForm } from '../../components/ContactForm/ContactForm';
 import { FilterAndTable } from '../../components/App/FilterAndTable';
 import { useGetAllContactsQuery } from '../../redux/contact/contacts-api';
+import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
 export default function Contacts({ isThemeDark }) {
@@ -22,3 +23,7 @@ export default function Contacts({ isThemeDark }) {
     </div>
   );
 }
+
+Contacts.propTypes = {
+  isThemeDark: PropTypes.bool.isRequired,
+};

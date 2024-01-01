@@ -1,4 +1,5 @@
 import { PulseLoader } from 'react-spinners';
+import PropTypes from 'prop-types';
 
 export const RegistrationFormButton = ({ isLoading, isThemeDark }) => {
   return (
@@ -24,4 +25,9 @@ export const RegistrationFormButton = ({ isLoading, isThemeDark }) => {
       )}
     </button>
   );
+};
+
+RegistrationFormButton.propTypes = {
+  isThemeDark: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool,
 };

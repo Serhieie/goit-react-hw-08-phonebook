@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { ContactTableItem } from './ContactTableItem/ContactTableItem';
 import { getFilterValue, getTheme } from '../../redux/selectors';
 import { TableHead } from './TableHead/TableHead';
+import PropTypes from 'prop-types';
 
 export function ContactTable({ data, error, isLoading }) {
   const filter = useSelector(getFilterValue);
@@ -10,15 +11,20 @@ export function ContactTable({ data, error, isLoading }) {
 
   const getVisibleContacts = useMemo(() => {
     const normalizedFilter = filter.toLowerCase();
+
+    //next step we have arrey operations so we need to check is it arrey or...
     if (!Array.isArray(data)) {
       return [];
     }
 
+    //filter by name or phone
     const filteredContacts = data.filter(
       contact =>
         contact.name.toLowerCase().includes(normalizedFilter) ||
         contact.number.toLowerCase().includes(normalizedFilter)
     );
+
+    //all contacts will go trough A-Z sort
     const sortedContacts = [...filteredContacts].sort((a, b) => {
       return a.name.localeCompare(b.name);
     });
@@ -68,3 +74,8 @@ export function ContactTable({ data, error, isLoading }) {
     </div>
   );
 }
+
+ContactTable.propTypes = {
+  error: PropTypes.string,
+  isLoading: PropTypes.bool,
+};

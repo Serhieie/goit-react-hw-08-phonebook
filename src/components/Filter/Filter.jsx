@@ -9,6 +9,7 @@ export function Filter() {
   const filterValue = useSelector(getFilterValue);
   const isThemeDark = useSelector(getTheme);
 
+  //need for saving in local storage
   const handleInputChange = event => {
     const value = event.target.value;
     dispatch(changeFilterValue(value));
