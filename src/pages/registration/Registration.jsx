@@ -64,7 +64,7 @@ export default function Registration() {
   return (
     <>
       <Helmet>
-        <title>Stone-Registration</title>
+        <title>StoneBook-Registration</title>
       </Helmet>
       <Formik
         initialValues={initialValues}

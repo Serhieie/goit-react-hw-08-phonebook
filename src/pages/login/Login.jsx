@@ -57,7 +57,7 @@ export default function Login() {
   return (
     <>
       <Helmet>
-        <title>Stone-Login</title>
+        <title>StoneBook-Login</title>
       </Helmet>
       <form
         onSubmit={handleSubmit}
