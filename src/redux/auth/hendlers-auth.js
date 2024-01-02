@@ -9,7 +9,7 @@ const handleRejected = state => {
 };
 
 const handleRegisterFulfilled = (state, action) => {
-  window.location.href = '/';
+  window.location.href = '/goit-react-hw-08-phonebook/';
   if (action.payload && action.payload.user) {
     return {
       ...state,
