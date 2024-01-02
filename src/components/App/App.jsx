@@ -46,14 +46,7 @@ export function App() {
             </RestrictedRoute>
           }
         />
-        <Route
-          path="/registration"
-          element={
-            <RestrictedRoute redirectTo="/home">
-              <Registration />
-            </RestrictedRoute>
-          }
-        />
+        <Route path="/registration" element={<Registration />} />
         <Route
           path="/home"
           element={

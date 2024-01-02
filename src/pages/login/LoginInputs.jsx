@@ -46,7 +46,7 @@ export const LoginInputs = ({ windowSize, isThemeDark }) => {
           isThemeDark
             ? ' text-darkFontDark bg-sky-900 placeholder:text-darkFontDark '
             : ' text-darkFont bg-lightPartsColor placeholder:text-darkFont '
-        } mx-auto w-full py-1 px-5 rounded-sm h-12 
+        }  mx-auto w-full py-1 rounded-sm px-5  h-12 
           border-0 outline-none   
            placeholder:font-base
              md:h-10 text-xl md:py-0.5 md:px-2 placeholder:opacity-50 

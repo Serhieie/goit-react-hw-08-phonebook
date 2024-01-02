@@ -60,7 +60,7 @@ export function ContactTable({ data, error, isLoading }) {
          ssm2:w-12/12 ssm2:p-0 ssm2:m-0 ssm2:text-base`}
       >
         <TableHead isThemeDark={isThemeDark} />
-        <tbody className="max-h-fit max-w-full text-xl ssm:text-base    ssm2:text-lg  select-text 1xl2:text-2xl">
+        <tbody className="max-h-fit max-w-full  text-xl ssm:text-base    ssm2:text-lg  1xl2:text-2xl">
           {!error &&
             getVisibleContacts.map((contact, index) => (
               <ContactTableItem

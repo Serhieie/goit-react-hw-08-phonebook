@@ -16,6 +16,7 @@ const initialValues = {
   name: '',
   email: '',
   password: '',
+  confirmPassword: '',
 };
 
 //Registration form is not have setting to LS option
@@ -51,6 +52,7 @@ export default function Registration() {
       email: email.trim(),
       password: password.trim(),
     };
+
     //validation for inputs
     handleRegistration(userData, dispatch);
     resetForm();
@@ -70,6 +72,8 @@ export default function Registration() {
         initialValues={initialValues}
         validationSchema={registrationSchema}
         onSubmit={handleSubmit}
+        validateOnChange={false}
+        validateOnBlur={false}
       >
         <Form
           autoComplete="off"
@@ -79,9 +83,9 @@ export default function Registration() {
             isThemeDark
               ? ' shadow-shadowBoxDark from-smallWraperGradient1Dark to-smallWraperGradient2Dark '
               : ' from-smallWraperGradient1 shadow-shadowBox to-smallWraperGradient2 '
-          }  flex gap-2 flex-col pt-10   px-10 rounded-sm
+          }  flex gap-2 flex-col pt-10 1xl2:pt-12 1xl2:pb-10 1xl2:mb-4   px-10 rounded-sm
           shadow-lg bg-gradient-to-tr md:py-7 md:pb-14 md:px-5 md:min-h-0 md:w-[96%]
-          transition-all  ssm2:pt-24 ssm2:-mt-4  mx-auto z-60 mt-4 md2:pt-8 md2:mt-8 `}
+          transition-all  ssm2:pt-16 ssm2:mt-4  mx-auto z-60 mt-4 md2:pt-8 md2:mt-8 `}
         >
           <h1 className="text-center text-4xl m-0 mt-1 md:text-2xl md2:text-2xl font-normal">
             Registration

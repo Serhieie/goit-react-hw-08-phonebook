@@ -26,6 +26,7 @@ export const validateRegistration = userData => {
       password: 'Password should be at least 7 characters long.',
     };
   }
+
   return errors;
 };
 

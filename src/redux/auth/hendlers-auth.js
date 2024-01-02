@@ -9,6 +9,7 @@ const handleRejected = state => {
 };
 
 const handleRegisterFulfilled = (state, action) => {
+  window.location.href = '/';
   if (action.payload && action.payload.user) {
     return {
       ...state,
@@ -16,10 +17,9 @@ const handleRegisterFulfilled = (state, action) => {
         name: action.payload.user?.name || '',
         number: action.payload.user?.number || '',
       },
-      token: action.payload.token,
-      avatar: getRandomAvatarPath(),
+      token: null,
       isLoadingUser: false,
-      isLoggedIn: true,
+      isLoggedIn: false,
     };
   }
   return state;

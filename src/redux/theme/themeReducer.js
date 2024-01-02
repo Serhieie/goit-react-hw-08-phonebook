@@ -6,7 +6,6 @@ export const themeSlice = createSlice({
   name: 'theme',
   initialState: {
     darkTheme: false,
-    showPass: false,
   },
   reducers: {
     setTheme: (state, action) => {

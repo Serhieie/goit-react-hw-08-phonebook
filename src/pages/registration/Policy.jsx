@@ -18,14 +18,14 @@ export const Policy = ({ windowSize }) => {
     <div
       className={`
     ${widthClass}
-    mt-10 w-full max-w-[500px] mx-auto flex relative`}
+    mt-10 w-full max-w-[500px] mx-auto flex relative 1xl2:mt-3`}
     >
       <input
         className={`${
           isThemeDark
             ? 'border-none checked:bg-lightPartsColorDark bg-sky-700'
             : 'border-darkFont checked:bg-buttonColor bg-lightPartsColor'
-        } mr-4 mt-1   appearance-none rounded border checked:border-transparent
+        } mr-4 mt-0.5   appearance-none rounded border checked:border-transparent
         focus:outline-none`}
         style={{ flex: 'none', width: '24px', height: '24px' }}
         name="user-privacy"
@@ -37,7 +37,7 @@ export const Policy = ({ windowSize }) => {
         onChange={handleCheckboxChange}
       />
       {isChecked && (
-        <span className="absolute top-1.5 left-0.5 pointer-events-none p-0.5 w-full">
+        <span className="absolute top-1 left-0.5 pointer-events-none p-0.5 w-full">
           <FaCheck size={16} className="pointer-events-none" />
         </span>
       )}

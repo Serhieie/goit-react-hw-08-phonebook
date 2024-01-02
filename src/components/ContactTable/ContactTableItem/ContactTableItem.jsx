@@ -33,7 +33,7 @@ export function ContactTableItem({ contact, index }) {
         isThemeDark
           ? ' border-tableBorderColorDark '
           : ' border-tableBorderColor '
-      }border-b-2  `}
+      } border-b-2  `}
     >
       <td
         width="5%"
@@ -47,7 +47,7 @@ export function ContactTableItem({ contact, index }) {
         width="44%"
         className={`${
           isThemeDark ? ' bg-lightPartsColorDark ' : ' bg-lightPartsColor '
-        }p-1 text-center   md:text-md   `}
+        }p-1 text-center  user-selectable  md:text-md   `}
       >
         {contact.name}
       </td>
@@ -55,7 +55,7 @@ export function ContactTableItem({ contact, index }) {
         width="42%"
         className={`${
           isThemeDark ? ' bg-lightPartsColorDark ' : ' bg-lightPartsColor '
-        }p-1 text-center   md:text-md  `}
+        }p-1 text-center   md:text-md  user-selectable `}
       >
         {normalizePhoneNumber(contact.number)}
       </td>
