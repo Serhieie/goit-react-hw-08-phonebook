@@ -9,7 +9,6 @@ const handleRejected = state => {
 };
 
 const handleRegisterFulfilled = (state, action) => {
-  window.location.href = '/goit-react-hw-08-phonebook/';
   if (action.payload && action.payload.user) {
     return {
       ...state,
@@ -17,7 +16,7 @@ const handleRegisterFulfilled = (state, action) => {
         name: action.payload.user?.name || '',
         number: action.payload.user?.number || '',
       },
-      token: null,
+      token: action.payload.token,
       isLoadingUser: false,
       isLoggedIn: false,
     };

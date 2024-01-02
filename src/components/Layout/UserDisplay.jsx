@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export const UserDisplay = ({ fullState, handleLogout, isThemeDark }) => {
   return (
     <>
-      {fullState.isLoggedIn ? (
+      {fullState.isLoggedIn && fullState.token ? (
         <div className="1xl2:mr-40  flex items-center gap-6 ssm:gap-2 ">
           <div
             className={`${

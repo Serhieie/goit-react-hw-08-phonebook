@@ -38,7 +38,7 @@ export const Header = () => {
         } py-2 mr-auto px-6  flex items-center 
       justify-start  md:justify-between  md:px-4 gap-8 w-24%  md:pr-[2%]  pr-[26%] ssm:gap-1 ssm:mx-0`}
       >
-        {fullState.isLoggedIn ? (
+        {fullState.isLoggedIn && fullState.token ? (
           <MainNav
             isThemeDark={isThemeDark}
             isLoggedIn={fullState.isLoggedIn}

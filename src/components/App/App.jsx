@@ -1,6 +1,7 @@
 import React, { useEffect, lazy } from 'react';
 import PrivateRoute from '../PrivateRoute.jsx';
 import RestrictedRoute from '../RestrictedRoute.jsx';
+import ToLoginRoute from 'components/ToLoginRoute.jsx';
 import { useDispatch } from 'react-redux';
 import { BodyChanger } from 'helpers/useEffectBodyChanger.js';
 import { Routes, Route } from 'react-router-dom';
@@ -46,7 +47,14 @@ export function App() {
             </RestrictedRoute>
           }
         />
-        <Route path="/registration" element={<Registration />} />
+        <Route
+          path="/registration"
+          element={
+            <ToLoginRoute redirectTo="/">
+              <Registration />
+            </ToLoginRoute>
+          }
+        />
         <Route
           path="/home"
           element={
