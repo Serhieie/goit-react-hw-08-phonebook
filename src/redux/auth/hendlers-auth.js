@@ -17,8 +17,9 @@ const handleRegisterFulfilled = (state, action) => {
         number: action.payload.user?.number || '',
       },
       token: action.payload.token,
+      avatar: getRandomAvatarPath(),
       isLoadingUser: false,
-      isLoggedIn: false,
+      isLoggedIn: true,
     };
   }
   return state;

@@ -50,9 +50,9 @@ export function App() {
         <Route
           path="/registration"
           element={
-            <ToLoginRoute redirectTo="/">
+            <RestrictedRoute redirectTo="/home">
               <Registration />
-            </ToLoginRoute>
+            </RestrictedRoute>
           }
         />
         <Route
