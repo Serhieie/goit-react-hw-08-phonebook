@@ -1,7 +1,6 @@
 import React, { useEffect, lazy } from 'react';
 import PrivateRoute from '../PrivateRoute.jsx';
 import RestrictedRoute from '../RestrictedRoute.jsx';
-import ToLoginRoute from 'components/ToLoginRoute.jsx';
 import { useDispatch } from 'react-redux';
 import { BodyChanger } from 'helpers/useEffectBodyChanger.js';
 import { Routes, Route } from 'react-router-dom';
